@@ -1,0 +1,169 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0px;
+    padding: 0;
+    background-color: #d0eafc;
+}
+
+#app {
+    width: 700px;
+    margin: 10px auto;
+    padding: 25px;
+    background-color: #b4d6ee;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #3498db;
+    text-align: center;
+}
+
+#orderDateFilter {
+    background-color: #3498db;
+    color: #ffffff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+#orderDateFilter label {
+    /* display: block; */
+    margin: 5px;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+#orderDateFilter input, #orderDateFilter button {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #1d5579;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+#orderList {
+    margin-top: 20px;
+}
+
+.order {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.order p {
+    margin: 5px 0;
+}
+
+#customerForm, #expensesForm {
+    background-color: #3498db;
+    color: #ffffff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+#customerForm h2, #expensesForm h2 {
+    color: #ffffff;
+    text-align: center;
+    margin: 10px;
+}
+
+#customerForm label, #expensesForm label {
+    /* display: block; */
+    margin-bottom: 5px;
+    color: #ffffff;
+    width: 100%;
+
+}
+
+/* #customerName input {
+    width: 100%;
+    column-span: 2;
+} */
+
+#customerForm input, #expensesForm input {
+    width: 22%;
+    padding: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #2980b9;
+    border-radius: 4px;
+}
+
+#summary {
+    background-color: #3498db;
+    color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+#summary p {
+    font-size: 18px;
+    margin: 0;
+    text-align: center;
+}
+
+#totalIncome, #totalExpenses, #profitLoss {
+    font-size: 23px;
+    font-weight: bold;
+    color: #1d5579;
+    line-height: 2.5rem;
+}
+
+#totalIncome::before {
+    content: 'Total Income: ';
+    color: #ffdf3f;
+}
+
+#totalExpenses::before {
+    content: 'Total Expenses: ';
+    color: #ffdf3f;
+}
+
+#profitLoss::before {
+    content: 'Total Balance: ';
+    color: #ffdf3f;
+}
+
+#orderList {
+    margin-top: 20px;
+}
+
+#ordersTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#ordersTable th, #ordersTable td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+#ordersTable th {
+    background-color: #3498db;
+    color: #ffffff;
+}
+
+

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>BizTrack</title>
+</head>
+<body>
+
+<div id="app">
+    <h1>BizTrack</h1>
+
+    <!-- <div id="orderDateFilter">
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate">
+
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate">
+
+        <button onclick="filterOrdersByDate()">Filter by Date</button>
+    </div> -->
+
+    <div id="summary">
+        <p><span id="totalIncome"><br> $0.00</span></p>
+        <p><span id="totalExpenses"><br> $0.00</span></p>
+        <p><span id="profitLoss"><br> $0.00</span></p>
+    </div>
+
+    <!-- Form for Customer Details -->
+    <div id="customerForm">
+        <h2>Customer Details</h2>
+        
+        <label for="orderDateCustomer">Order Date:</label>
+        <input type="date" id="orderDateCustomer">
+
+        <label for="customerName">Customer Name:</label>
+        <input type="text" id="customerName" placeholder="Jen">
+
+        <label for="itemName">Item Name:</label>
+        <input type="text" id="itemName" placeholder="Earrings">
+
+        <label for="itemPrice">Item Price:</label>
+        <input type="number" id="itemPrice" min="0.01" step="0.01" value="0.00">
+
+        <label for="quantityBought">Quantity Bought:</label>
+        <input type="number" id="quantityBought" min="1" value="1">
+
+        <!-- <button onclick="calculateCustomerOrder()">Add Order</button> -->
+    </div>
+
+    <!-- Form for Actual Costs -->
+    <div id="expensesForm">
+        <h2>Actual Costs</h2>
+
+        <label for="orderDateExpenses">Order Date:</label>
+        <input type="date" id="orderDateExpenses">
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" min="1" value="1">
+
+        <label for="itemCost">Cost Price:</label>
+        <input type="number" id="itemCost" min="0.01" step="0.01" value="0.00">
+
+        <label for="taxes">Taxes (%):</label>
+        <input type="number" id="taxes" min="0" value="0">
+
+        <label for="shipping">Shipping Fee:</label>
+        <input type="number" id="shipping" min="0" value="0.00">
+
+        <label for="otherExpenses">Other Expenses:</label>
+        <input type="number" id="otherExpenses" min="0" value="0.00">
+
+        <button onclick="calculateActualCosts()">Add Order</button>
+    </div>
+
+    <div id="orderList">
+        <!-- Orders will be displayed here as a table -->
+        <table id="ordersTable">
+            <thead>
+                <tr>
+                    <th>Order Date</th>
+                    <th>Customer Name</th>
+                    <th>Item Name</th>
+                    <th>Quantity</th>
+                    <th>Total Income</th>
+                    <th>Total Expenses</th>
+                    <th>Balance</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <button onclick="saveOrders()">Save Orders</button>
+    <button onclick="loadOrders()">Load Orders</button>
+    <button onclick="exportOrdersToCSV()">Export Orders to CSV</button>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
