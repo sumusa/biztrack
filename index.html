@@ -3,13 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>BizTrack</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="styles2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <title>Dashboard</title>
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <header class="site-header" id="site-header">
+        <div class="logo">
+            <a href="/"><h1>BIZTRACK</h1></a>
+        </div>
+        <div class="header-middle">
+            <nav class="main-nav" id="main-nav">
+                <ul>
+                    <li class="dashboard"><a href="./dashboard.html"><span>DASHBOARD</span></a></li>
+                    <li class="orders"><a href="#orders"><span>ORDERS</span></a></li>
+                    <li class="products"><a href="./products.html"><span>PRODUCTS</span></a></li>
+                    <li class="inventory"><a href="#inventory"><span>INVENTORY</span></a></li>
+                    <li class="finances"><a href="#finances"><span>FINANCES</span></a></li>
+                    <li><input type="text" placeholder="Search.."></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<div id="app">
-    <h1>BizTrack</h1>
+    <!-- Main Page Contents-->
+    <main>
+        <div id="welcome" class="welcome">
+            <h2 class="welcome-word">Welcome to <span>BizTrack</span></h2>
+            <h4 class="slogan">The ultimate solution for small business owners to streamline operations and manage finances effortlessly.</h4>
+            <h4 class="intro-word">Discover the power of efficient order and finance management with our simple and intuitive web application.</h4>
+            <div>
+                <button class="get-started"><a href="./dashboard.html">Get Started</a></button>
+            </div>
+        </div>
+    </main>
+    
 
     <!-- <div id="orderDateFilter">
         <label for="startDate">Start Date:</label>
@@ -21,14 +53,8 @@
         <button onclick="filterOrdersByDate()">Filter by Date</button>
     </div> -->
 
-    <div id="summary">
-        <p><span id="totalIncome"><br> $0.00</span></p>
-        <p><span id="totalExpenses"><br> $0.00</span></p>
-        <p><span id="profitLoss"><br> $0.00</span></p>
-    </div>
-
     <!-- Form for Customer Details -->
-    <div id="customerForm">
+    <!-- <div id="customerForm">
         <h2>Customer Details</h2>
         
         <label for="orderDateCustomer">Order Date:</label>
@@ -46,11 +72,11 @@
         <label for="quantityBought">Quantity Bought:</label>
         <input type="number" id="quantityBought" min="1" value="1">
 
-        <!-- <button onclick="calculateCustomerOrder()">Add Order</button> -->
-    </div>
+        <button onclick="calculateCustomerOrder()">Add Order</button>
+    </div> -->
 
     <!-- Form for Actual Costs -->
-    <div id="expensesForm">
+    <!-- <div id="expensesForm">
         <h2>Actual Costs</h2>
 
         <label for="orderDateExpenses">Order Date:</label>
@@ -72,10 +98,9 @@
         <input type="number" id="otherExpenses" min="0" placeholder="0.00">
 
         <button onclick="calculateActualCosts()">Add Order</button>
-    </div>
+    </div> -->
 
-    <div id="orderList">
-        <!-- Orders will be displayed here as a table -->
+    <!-- <div id="orderList">
         <table id="ordersTable">
             <thead>
                 <tr>
@@ -90,13 +115,13 @@
             </thead>
             <tbody></tbody>
         </table>
-    </div>
+    </div> -->
 
-    <button onclick="saveOrders()">Save Orders</button>
-    <button onclick="loadOrders()">Load Orders</button>
-    <button onclick="exportOrdersToCSV()">Export Orders to CSV</button>
-</div>
+        <!-- <button onclick="saveOrders()">Save Orders</button>
+        <button onclick="loadOrders()">Load Orders</button>
+        <button onclick="exportOrdersToCSV()">Export Orders to CSV</button>
+    </div> -->
 
-<script src="app.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
