@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <title>Products</title>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <div class="fas fa-store"></div>
+        </div>
+        <ul class="menu">
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="./products.html">
+                    <i class="fas fa-dolly"></i>
+                    <span>Products</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Orders</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-sack-dollar"></i>
+                    <span>Finances</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Help</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-star"></i>
+                    <span>Feedback</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+            <li class="logout">
+                <a href="#">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <span>Primary</span>
+                <h2>Products</h2>
+            </div>
+            <div class="user-info">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+                <i class="fas fa-user-alt fa-xl"></i>
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <div class="product-title">
+                <h3 class="main-title">Products</h3>
+                <button class="add-button" onclick="productForm()">Add Products</button>
+            </div>
+            <div class="form-popup" id="product-form">
+                <form class="form-container">
+                    <div class="form-columns">
+                        <div class="first-col">
+                            <label for="product-id"><b>Product ID: </b></label>
+                            <input type="text" name="product-id" placeholder="PD001" required>
+                        
+                            <label for="product-name"><b>Choose a product:</b></label>
+                            <select name="product-name" id="product-name">
+                                <option value="hat">Hat</option>
+                                <option value="mug">Mug</option>
+                                <option value="sweatshirt">Sweatshirt</option>
+                                <option value="hoodie">Hoodie</option>
+                                <option value="wallart">Wall Art</option>
+                            </select>
+    
+                            <label for="product-desc"><b>Product Description:</b></label>
+                            <input type="text" name="product-desc" placeholder="Travel Mug">
+                        </div>
+                        <div class="second-col">
+                            <label for="product-cat"><b>Product Category:</b></label>
+                            <select name="product-cat" id="product-cat">
+                                <option value="clothings">Clothing</option>
+                                <option value="drinkware">Drinkware</option>
+                                <option value="accessories">Accessories</option>
+                                <option value="home-decor">Home Decor</option>
+                            </select>
+    
+                            <label for="product-price"><b>Product Price:</b></label>
+                            <input type="number" name="product-price" placeholder="$0.00" min="0.00" max="10000.00" step="0.01">
+    
+                            <label for="product-stock"><b>Available in Stock:</b></label>
+                            <input type="number" name="product-stock" placeholder="10">
+                        </div>
+                    </div>
+                    
+                    <div class="button-col">
+                        <button type="submit" class="btn" onclick="publishToTable()">Done</button>
+                        <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product ID</th>
+                            <th>Product Name</th>
+                            <th>Description</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>PD001</td>
+                            <td>Hat</td>
+                            <td>Baseball Hat</td>
+                            <td>Clothing</td>
+                            <td>$25.00</td>
+                            <td>250</td>
+                            <td class="action">
+                                <button>Edit</button>
+                                <i class="fas fa-trash-alt"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PD002</td>
+                            <td>Mug</td>
+                            <td>Accent Mug</td>
+                            <td>Drinkware</td>
+                            <td>$17.00</td>
+                            <td>50</td>
+                            <td class="action">
+                                <button>Edit</button>
+                                <i class="fas fa-trash-alt"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PD003</td>
+                            <td>Sweatshirt</td>
+                            <td>Peace sweatshirt</td>
+                            <td>Clothing</td>
+                            <td>$25.00</td>
+                            <td>50</td>
+                            <td class="action">
+                                <button>Edit</button>
+                                <i class="fas fa-trash-alt"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PD004</td>
+                            <td>Wall Art</td>
+                            <td>Vibes Prints</td>
+                            <td>Home Decor</td>
+                            <td>$12.00</td>
+                            <td>60</td>
+                            <td class="action">
+                                <button>Edit</button>
+                                <i class="fas fa-trash-alt"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="11"><a href="#">View more orders</a></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
