@@ -85,50 +85,50 @@
                 <h3 class="main-title">Products</h3>
                 <button class="add-button" onclick="productForm()">Add Products</button>
             </div>
-            <div class="form-popup" id="product-form">
-                <form class="form-container">
+            <div class="form-popup">
+                <form class="form-container" id="product-form" onsubmit="newProduct(event)">
                     <div class="form-columns">
                         <div class="first-col">
                             <label for="product-id"><b>Product ID: </b></label>
-                            <input type="text" name="product-id" placeholder="PD001" required>
+                            <input type="text" id="product-id" placeholder="PD001" required>
                         
                             <label for="product-name"><b>Choose a product:</b></label>
-                            <select name="product-name" id="product-name">
-                                <option value="hat">Hat</option>
-                                <option value="mug">Mug</option>
-                                <option value="sweatshirt">Sweatshirt</option>
-                                <option value="hoodie">Hoodie</option>
-                                <option value="wallart">Wall Art</option>
+                            <select name="product-name" id="product-name" required>
+                                <option value="Hat">Hat</option>
+                                <option value="Mug">Mug</option>
+                                <option value="Sweatshirt">Sweatshirt</option>
+                                <option value="Hoodie">Hoodie</option>
+                                <option value="Wallart">Wall Art</option>
                             </select>
     
                             <label for="product-desc"><b>Product Description:</b></label>
-                            <input type="text" name="product-desc" placeholder="Travel Mug">
+                            <input type="text" id="product-desc" placeholder="Travel Mug" required>
                         </div>
                         <div class="second-col">
                             <label for="product-cat"><b>Product Category:</b></label>
-                            <select name="product-cat" id="product-cat">
-                                <option value="clothings">Clothing</option>
-                                <option value="drinkware">Drinkware</option>
-                                <option value="accessories">Accessories</option>
-                                <option value="home-decor">Home Decor</option>
+                            <select name="product-cat" id="product-cat" required>
+                                <option value="Clothing">Clothing</option>
+                                <option value="Drinkware">Drinkware</option>
+                                <option value="Accessories">Accessories</option>
+                                <option value="Home-decor">Home Decor</option>
                             </select>
     
                             <label for="product-price"><b>Product Price:</b></label>
-                            <input type="number" name="product-price" placeholder="$0.00" min="0.00" max="10000.00" step="0.01">
+                            <input type="number" id="product-price" placeholder="$0.00" min="0.00" max="10000.00" step="0.01" required>
     
                             <label for="product-stock"><b>Available in Stock:</b></label>
-                            <input type="number" name="product-stock" placeholder="10">
+                            <input type="number" id="product-stock" placeholder="10" required>
                         </div>
                     </div>
                     
                     <div class="button-col">
-                        <button type="submit" class="btn" onclick="publishToTable()">Done</button>
+                        <button type="submit" class="btn">Done</button>
                         <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
                     </div>
                 </form>
             </div>
             <div class="table-container">
-                <table>
+                <table id="product-table">
                     <thead>
                         <tr>
                             <th>Product ID</th>
@@ -140,8 +140,8 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
+                    <tbody id="tableBody">
+                        <!-- <tr>
                             <td>PD001</td>
                             <td>Hat</td>
                             <td>Baseball Hat</td>
@@ -149,8 +149,8 @@
                             <td>$25.00</td>
                             <td>250</td>
                             <td class="action">
-                                <button>Edit</button>
-                                <i class="fas fa-trash-alt"></i>
+                                <button id="edit-icon">Edit</button>
+                                <i id="delete-icon" class="fas fa-trash-alt"></i>
                             </td>
                         </tr>
                         <tr>
@@ -161,8 +161,8 @@
                             <td>$17.00</td>
                             <td>50</td>
                             <td class="action">
-                                <button>Edit</button>
-                                <i class="fas fa-trash-alt"></i>
+                                <button id="edit-icon">Edit</button>
+                                <i id="delete-icon" class="fas fa-trash-alt"></i>
                             </td>
                         </tr>
                         <tr>
@@ -173,8 +173,8 @@
                             <td>$25.00</td>
                             <td>50</td>
                             <td class="action">
-                                <button>Edit</button>
-                                <i class="fas fa-trash-alt"></i>
+                                <button id="edit-icon">Edit</button>
+                                <i id="delete-icon" class="fas fa-trash-alt"></i>
                             </td>
                         </tr>
                         <tr>
@@ -185,21 +185,24 @@
                             <td>$12.00</td>
                             <td>60</td>
                             <td class="action">
-                                <button>Edit</button>
-                                <i class="fas fa-trash-alt"></i>
+                                <button id="edit-icon" >Edit</button>
+                                <i id="delete-icon" class="fas fa-trash-alt"></i>
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
-                    <tfoot>
+                    <!-- <tfoot>
                         <tr>
                             <td colspan="11"><a href="#">View more orders</a></td>
                         </tr>
-                    </tfoot>
+                    </tfoot> -->
                 </table>
             </div>
         </div>
     </div>
     </div>
+
+    
     <script src="script.js"></script>
+    <script>renderProducts(products)</script>
 </body>
 </html>
