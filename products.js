@@ -1,5 +1,5 @@
 
-function productForm() {
+function openForm() {
     var form = document.getElementById("product-form")
     form.style.display = (form.style.display === "block") ? "none" : "block";
 }
@@ -18,41 +18,41 @@ function init() {
       products = [
         {
           prodID: "PD001",
-          prodName: "Hat",
-          prodDesc: "Trucker Hat",
-          prodCat: "Clothing",
+          prodName: "Baseball caps",
+          prodDesc: "Peace embroidered cap",
+          prodCat: "Hat",
           prodPrice: 25.00,
           prodStock: 20
         },
         {
           prodID: "PD002",
-          prodName: "Sweatshirt",
-          prodDesc: "Oversize sweatshirt",
-          prodCat: "Clothing",
+          prodName: "Water bottles",
+          prodDesc: "Floral lotus printed bottle",
+          prodCat: "Drinkware",
           prodPrice: 48.50,
           prodStock: 10
         },
         {
           prodID: "PD003",
-          prodName: "Mug",
-          prodDesc: "Enamel Mug",
+          prodName: "Mugs",
+          prodDesc: "Outdoor enamel mug",
           prodCat: "Drinkware",
           prodPrice: 17.50,
           prodStock: 70
         },
         {
           prodID: "PD004",
-          prodName: "Wall Art",
-          prodDesc: "Vibes Prints",
-          prodCat: "Home Decor",
+          prodName: "Posters",
+          prodDesc: "Vibes printed poster",
+          prodCat: "Home decor",
           prodPrice: 12.00,
           prodStock: 60
         },
         {
           prodID: "PD005",
-          prodName: "Mug",
-          prodDesc: "Accent Mug",
-          prodCat: "Drinkware",
+          prodName: "Pillow cases",
+          prodDesc: "Morrocan print pillow case",
+          prodCat: "Accessories",
           prodPrice: 17.00,
           prodStock: 40
         },

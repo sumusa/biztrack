@@ -27,7 +27,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="./orders.html">
                     <i class="fas fa-shopping-cart"></i>
                     <span>Orders</span>
                 </a>
@@ -84,7 +84,7 @@
             <div class="product-title">
                 <h3 class="main-title">Products</h3>
                 <div class="product-button">
-                    <button class="add-button" onclick="productForm()">Add Products</button>
+                    <button class="add-button" onclick="openForm()">Add Products</button>
                     <button class="download-button" onclick="exportToCSV()">Download CSV</button>
                 </div>
             </div>
@@ -97,12 +97,33 @@
                         
                             <label for="product-name"><b>Product Name</b></label>
                             <select name="product-name" id="product-name" required>
-                                <option value="" disabled selected>Choose a product</option>
-                                <option value="Hat">Hat</option>
-                                <option value="Mug">Mug</option>
-                                <option value="Sweatshirt">Sweatshirt</option>
-                                <option value="Hoodie">Hoodie</option>
-                                <option value="Wallart">Wall Art</option>
+                                <option value="" disabled selected hidden>Choose a product</option>
+                                <optgroup label="Hats">
+                                    <option value="Baseball caps">Baseball caps</option>
+                                    <option value="Snapbacks">Snapbacks</option>
+                                    <option value="Beanies">Beanies</option>
+                                    <option value="Bucket hats">Bucket hats</option>
+                                </optgroup>
+                                <optgroup label="Drinkware">
+                                    <option value="Mugs">Mugs</option>
+                                    <option value="Water bottles">Water bottles</option>
+                                    <option value="Tumblers">Tumblers</option>
+                                </optgroup>   
+                                <optgroup label="Clothing">
+                                    <option value="T-shirts">T-shirts</option>
+                                    <option value="Sweatshirts">Sweatshirts</option>
+                                    <option value="Hoodies">Hoodies</option>
+                                </optgroup>   
+                                <optgroup label="Accessories">
+                                    <option value="Pillow cases">Pillow cases</option>
+                                    <option value="Tote bags">Tote bags</option>
+                                    <option value="Stickers">Stickers</option>
+                                </optgroup>   
+                                <optgroup label="Home decor">
+                                    <option value="Posters">Posters</option>
+                                    <option value="Framed posters">Framed posters</option>
+                                    <option value="Canvas prints">Canvas prints</option>
+                                </optgroup>
                             </select>
     
                             <label for="product-desc"><b>Product Description:</b></label>
@@ -115,7 +136,8 @@
                                 <option value="Clothing">Clothing</option>
                                 <option value="Drinkware">Drinkware</option>
                                 <option value="Accessories">Accessories</option>
-                                <option value="Home-decor">Home Decor</option>
+                                <option value="Hats">Hats</option>
+                                <option value="Home decor">Home decor</option>
                             </select>
     
                             <label for="product-price"><b>Product Price:</b></label>

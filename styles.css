@@ -80,6 +80,7 @@ body {
     width: 100%;
 }
 
+
 .main-content {
     position: relative;
     background-color: #FFF5EE80;
@@ -166,6 +167,7 @@ body {
     color: var(--light-blue)
 }
 
+
 .form-popup {
     bottom: 2;
     right: 15px;
@@ -185,14 +187,18 @@ body {
     display: flex;
     justify-content: space-between;
 }
-.first-col, .second-col {
+.first-col, .second-col, .third-col {
     width: 48%;
+}
+.order-first-col, .order-second-col, .order-third-col {
+    width: 32%;
 }
 label {
     margin-bottom: 10px;
     display: block;
 }
 .form-container input[type=text], 
+.form-container input[type=date],
 .form-container input[type=number],
 .form-container select {
     width: 100%;
@@ -202,6 +208,7 @@ label {
     background: #f1f1f1;
 }
 .form-container input[type=text]:focus, 
+.form-container input[type=date]:focus,
 .form-container input[type=number]:focus {
     background-color: #ddd;
     outline: none;
@@ -402,10 +409,10 @@ tfoot td a {
     justify-content: left;
     padding: 5px 6px;
 }
-.pending {
+.status option[value="Pending"] {
     background: #e4927370;
 }
-.started {
+select option[value="Being Fulfilled"] {
     background: #e4cf7370;
 }
 .shipped {
@@ -414,6 +421,7 @@ tfoot td a {
 .delivered {
     background: #9AADBF80;
 }
+
 .action {
     display: flex;
     align-items: center;
