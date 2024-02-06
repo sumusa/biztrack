@@ -38,6 +38,39 @@ function init() {
             orderTotal: 40.50,
             orderStatus: "Being Fulfilled"
         },
+        {
+            orderID: "1003",
+            orderDate: "2024-02-05",
+            itemName: "Tote bags",
+            itemPrice: 20.00,
+            qtyBought: 4,
+            shipping: 2.50,
+            taxes: 2.00,
+            orderTotal: 30.50,
+            orderStatus: "Shipped"
+        },
+        {
+            orderID: "1004",
+            orderDate: "2023-01-05",
+            itemName: "Canvas prints",
+            itemPrice: 55.00,
+            qtyBought: 1,
+            shipping: 2.50,
+            taxes: 19.00,
+            orderTotal: 21.50,
+            orderStatus: "Delivered"
+        },
+        {
+            orderID: "1005",
+            orderDate: "2024-01-15",
+            itemName: "Beanies",
+            itemPrice: 15.00,
+            qtyBought: 2,
+            shipping: 3.90,
+            taxes: 4.00,
+            orderTotal: 11.50,
+            orderStatus: "Pending"
+        },
       ];
 
       localStorage.setItem("bizTrackOrders", JSON.stringify(orders));
