@@ -15,7 +15,7 @@
         </div>
         <ul class="menu">
             <li>
-                <a href="#">
+                <a href="./dashboard.html">
                     <i class="fa-solid fa-gauge-high"></i>
                     <span>Dashboard</span>
                 </a>
@@ -74,7 +74,7 @@
             <div class="user-info">
                 <div class="search-box">
                     <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Search">
+                    <input type="text" id="searchInput" placeholder="Search">
                 </div>
                 <i class="fas fa-user-alt fa-xl"></i>
             </div>
@@ -83,7 +83,10 @@
         <div class="table-wrapper">
             <div class="product-title">
                 <h3 class="main-title">Products</h3>
-                <button class="add-button" onclick="productForm()">Add Products</button>
+                <div class="product-button">
+                    <button class="add-button" onclick="productForm()">Add Products</button>
+                    <button class="download-button" onclick="exportToCSV()">Download CSV</button>
+                </div>
             </div>
             <div class="form-popup">
                 <form class="form-container" id="product-form" onsubmit="newProduct(event)">
@@ -92,8 +95,9 @@
                             <label for="product-id"><b>Product ID: </b></label>
                             <input type="text" id="product-id" placeholder="PD001" required>
                         
-                            <label for="product-name"><b>Choose a product:</b></label>
+                            <label for="product-name"><b>Product Name</b></label>
                             <select name="product-name" id="product-name" required>
+                                <option value="" disabled selected>Choose a product</option>
                                 <option value="Hat">Hat</option>
                                 <option value="Mug">Mug</option>
                                 <option value="Sweatshirt">Sweatshirt</option>
@@ -107,6 +111,7 @@
                         <div class="second-col">
                             <label for="product-cat"><b>Product Category:</b></label>
                             <select name="product-cat" id="product-cat" required>
+                                <option value="" disabled selected>Choose a category</option>
                                 <option value="Clothing">Clothing</option>
                                 <option value="Drinkware">Drinkware</option>
                                 <option value="Accessories">Accessories</option>
@@ -122,7 +127,7 @@
                     </div>
                     
                     <div class="button-col">
-                        <button type="submit" class="btn">Done</button>
+                        <button type="submit" class="btn" id="submitBtn">Done</button>
                         <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
                     </div>
                 </form>
@@ -131,64 +136,16 @@
                 <table id="product-table">
                     <thead>
                         <tr>
-                            <th>Product ID</th>
-                            <th>Product Name</th>
-                            <th>Description</th>
-                            <th>Category</th>
-                            <th>Price</th>
-                            <th>Stock</th>
+                            <th onclick="sortTable('prodID')">Product ID</th>
+                            <th onclick="sortTable('prodName')">Product Name</th>
+                            <th onclick="sortTable('prodDesc')">Description</th>
+                            <th onclick="sortTable('prodCat')">Category</th>
+                            <th onclick="sortTable('prodPrice')">Price</th>
+                            <th onclick="sortTable('prodStock')">Stock</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody id="tableBody">
-                        <!-- <tr>
-                            <td>PD001</td>
-                            <td>Hat</td>
-                            <td>Baseball Hat</td>
-                            <td>Clothing</td>
-                            <td>$25.00</td>
-                            <td>250</td>
-                            <td class="action">
-                                <button id="edit-icon">Edit</button>
-                                <i id="delete-icon" class="fas fa-trash-alt"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>PD002</td>
-                            <td>Mug</td>
-                            <td>Accent Mug</td>
-                            <td>Drinkware</td>
-                            <td>$17.00</td>
-                            <td>50</td>
-                            <td class="action">
-                                <button id="edit-icon">Edit</button>
-                                <i id="delete-icon" class="fas fa-trash-alt"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>PD003</td>
-                            <td>Sweatshirt</td>
-                            <td>Peace sweatshirt</td>
-                            <td>Clothing</td>
-                            <td>$25.00</td>
-                            <td>50</td>
-                            <td class="action">
-                                <button id="edit-icon">Edit</button>
-                                <i id="delete-icon" class="fas fa-trash-alt"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>PD004</td>
-                            <td>Wall Art</td>
-                            <td>Vibes Prints</td>
-                            <td>Home Decor</td>
-                            <td>$12.00</td>
-                            <td>60</td>
-                            <td class="action">
-                                <button id="edit-icon" >Edit</button>
-                                <i id="delete-icon" class="fas fa-trash-alt"></i>
-                            </td>
-                        </tr> -->
                     </tbody>
                     <!-- <tfoot>
                         <tr>
@@ -201,8 +158,7 @@
     </div>
     </div>
 
-    
-    <script src="script.js"></script>
-    <script>renderProducts(products)</script>
+    <!-- <script>renderProducts(products)</script> -->
+    <script src="products.js"></script>
 </body>
 </html>

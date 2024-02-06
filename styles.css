@@ -140,31 +140,41 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+.product-button {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1rem;
+}
 .main-title {
     color: var(--brown-color);
     padding-bottom: 10px;
     font-size: 17px;
 }
-.add-button {
+.add-button, .download-button {
     font-size: medium;
     font-weight: 600;
     background: var(--blue-color);
     cursor: pointer;
+    transition: all 0.5s;
     color: var(--white-color);
     padding: 12px 13px;
     border-radius: 5px;
 }
+.add-button:hover, 
+.download-button:hover {
+    color: var(--light-blue)
+}
 
 .form-popup {
-    /* display: none; */
-    /* position: fixed; */
-    bottom: 0;
+    bottom: 2;
     right: 15px;
     /* border: 3px solid #f1f1f1; */
     z-index: 9;
 }
 .form-container {
     /* width: 100%; */
+    display: none;
     margin-top: 5px;
     padding: 1rem;
     background-color: white;
@@ -348,8 +358,13 @@ thead {
     color: var(--white-color);
 }
 th {
+    cursor: pointer;
+    transition: background-color 0.5s;
     padding: 15px;
     text-align: left;
+}
+th:hover {
+    color: var(--brown-color);
 }
 tbody {
     background: rgb(237, 237, 237);
