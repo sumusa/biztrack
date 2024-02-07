@@ -23,10 +23,14 @@ body {
 }
 .sidebar {
     position: sticky;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
     top: 0;
     left: 0;
     bottom: 0;
-    width: 107px;
+    width: 220px;
     height: 100vh;
     padding: 0 1.7rem;
     overflow: hidden;
@@ -34,14 +38,31 @@ body {
     background: var(--black-color);
 }
 .sidebar:hover {
-    width: 240px;
+    /* width: 230px; */
     transition: 0.5s;
 }
 .logo {
-    height: 80px;
+    top: 15px;
+    height: 70px;
     padding: 10px;
-    font-size: 1.6rem;
+    font-size: 1.3rem;
+    font-weight: 600;
     color: var(--white-color);
+    position: relative;
+}
+.logo a {
+    color: var(--white-color);
+    text-decoration: none;
+    display: flex;
+    align-items: first baseline;
+    justify-content: space-around;
+    gap: 1.2rem;
+}
+.logo a span {
+    overflow: hidden;
+}
+.logo a i {
+    font-size: 1.7rem;
 }
 .menu {
     height: 88%;
@@ -50,10 +71,10 @@ body {
     list-style: none;
 }
 .menu li {
-    padding: 1rem;
-    margin: 8px 0;
+    padding: 1.1rem;
+    margin: 13px 0;
     border-radius: 8px;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 .menu li:hover, 
 .active {
@@ -155,7 +176,7 @@ body {
 .add-button, .download-button {
     font-size: medium;
     font-weight: 600;
-    background: var(--blue-color);
+    background: var(--green-color);
     cursor: pointer;
     transition: all 0.5s;
     color: var(--white-color);
@@ -164,18 +185,16 @@ body {
 }
 .add-button:hover, 
 .download-button:hover {
-    color: var(--light-blue)
+    background: #145440;
 }
 
 
 .form-popup {
     bottom: 2;
     right: 15px;
-    /* border: 3px solid #f1f1f1; */
     z-index: 9;
 }
 .form-container {
-    /* width: 100%; */
     display: none;
     margin-top: 5px;
     padding: 1rem;
@@ -257,19 +276,19 @@ opacity: 1;
     transform: translateY(-5px);
 }
 .payment-card:first-child {
-    background-color: #24967239;
+    background-color: #24967259;
     border-left: 8px solid #249672;
 }
 .payment-card:nth-child(2) {
-    background-color: #A37A7439;
+    background-color: #A37A7459;
     border-left: 8px solid #A37A74;
 }
 .payment-card:nth-child(3) {
-    background-color: #247BA039;
+    background-color: #247BA059;
     border-left: 8px solid #247BA0;
 }
 .payment-card:nth-child(4) {
-    background-color: #e4927339;
+    background-color: #e4927359;
     border-left: 8px solid #e49273;
 }
 .card-header{
@@ -308,7 +327,7 @@ opacity: 1;
     font-family: 'Courier New', Courier, monospace;
 }
 
-/* Charts */
+/* ---- Charts ---- */
 .charts-container {
     background: #ffffff;
     padding: 2rem;
@@ -319,7 +338,6 @@ opacity: 1;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    /* justify-content: center; */
     gap: 1.2rem;
 }
 .charts-card {

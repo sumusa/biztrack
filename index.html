@@ -3,126 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-    <link rel="stylesheet" href="styles2.css">
+    <link rel="stylesheet" href="styles.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
     <title>Dashboard</title>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <header class="site-header" id="site-header">
+    <div class="sidebar">
         <div class="logo">
-            <a href="/"><h1>BIZTRACK</h1></a>
+            <a href="./index.html">
+                <i class="fas fa-b"></i>
+                <span>BizTrack</span>
+            </a>
         </div>
-        <div class="header-middle">
-            <nav class="main-nav" id="main-nav">
-                <ul>
-                    <li class="dashboard"><a href="./dashboard.html"><span>DASHBOARD</span></a></li>
-                    <li class="orders"><a href="#orders"><span>ORDERS</span></a></li>
-                    <li class="products"><a href="./products.html"><span>PRODUCTS</span></a></li>
-                    <li class="inventory"><a href="#inventory"><span>INVENTORY</span></a></li>
-                    <li class="finances"><a href="#finances"><span>FINANCES</span></a></li>
-                    <li><input type="text" placeholder="Search.."></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Main Page Contents-->
-    <main>
-        <div id="welcome" class="welcome">
-            <h2 class="welcome-word">Welcome to <span>BizTrack</span></h2>
-            <h4 class="slogan">The ultimate solution for small business owners to streamline operations and manage finances effortlessly.</h4>
-            <h4 class="intro-word">Discover the power of efficient order and finance management with our simple and intuitive web application.</h4>
-            <div>
-                <button class="get-started"><a href="./dashboard.html">Get Started</a></button>
+        <ul class="menu">
+            <li class="active">
+                <a href="./index.html">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="./products.html">
+                    <i class="fas fa-dolly"></i>
+                    <span>Products</span>
+                </a>
+            </li>
+            <li>
+                <a href="./orders.html">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Orders</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-sack-dollar"></i>
+                    <span>Finances</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Help</span>
+                </a>
+            </li>
+            <!-- <li>
+                <a href="#">
+                    <i class="fas fa-star"></i>
+                    <span>Feedback</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li> -->
+            <li class="logout">
+                <a href="#">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <span>Primary</span>
+                <h2>Dashboard</h2>
+            </div>
+            <div class="user-info">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="search" placeholder="Search">
+                </div>
+                <i class="fas fa-user-alt fa-xl"></i>
             </div>
         </div>
-    </main>
-    
 
-    <!-- <div id="orderDateFilter">
-        <label for="startDate">Start Date:</label>
-        <input type="date" id="startDate">
+        <div class="card-container">
+            <h3 class="main-title">Today's Stats</h3>
+            <div class="card-wrapper">
+                <div class="payment-card">
+                    <div class="card-header">
+                        <div class="amount">
+                            <span class="title">Revenue</span>
+                            <span class="amount-value">$500.00</span>
+                        </div>
+                        <i class="fas fa-sack-dollar icon"></i>
+                    </div>
+                    <span class="card-detail">**** **** **** 5674</span>
+                </div>
+                <div class="payment-card">
+                    <div class="card-header">
+                        <div class="amount">
+                            <span class="title">Expenses</span>
+                            <span class="amount-value">$200.00</span>
+                        </div>
+                        <i class="fas fa-credit-card icon"></i>
+                    </div>
+                    <span class="card-detail">**** **** **** 2356</span>
+                </div>
+                <div class="payment-card">
+                    <div class="card-header">
+                        <div class="amount">
+                            <span class="title">Orders</span>
+                            <span class="amount-value">50</span>
+                        </div>
+                        <i class="fas fa-shopping-cart icon"></i>
+                    </div>
+                    <span class="card-detail">**** **** **** 1047</span>
+                </div>
+                <div class="payment-card">
+                    <div class="card-header">
+                        <div class="amount">
+                            <span class="title">Net Profit</span>
+                            <span class="amount-value">$300.00</span>
+                        </div>
+                        <i class="fas fa-arrow-up-right-dots icon"></i>
+                    </div>
+                    <span class="card-detail">**** **** **** 2951</span>
+                </div>
+            </div>
+        </div>
+        <div class="charts-container">
+            <h3 class="main-title">Analytics</h3>
+            <div class="charts-wrapper">
+                <div class="charts-card">
+                    <span class="chart-title">Top 5 Selling Products</span>
+                    <div id="bar-chart"></div>
+                </div>
+                <div class="charts-card">
+                    <span class="chart-title">Revenue and Expenses</span>
+                    <div id="area-chart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <label for="endDate">End Date:</label>
-        <input type="date" id="endDate">
-
-        <button onclick="filterOrdersByDate()">Filter by Date</button>
-    </div> -->
-
-    <!-- Form for Customer Details -->
-    <!-- <div id="customerForm">
-        <h2>Customer Details</h2>
-        
-        <label for="orderDateCustomer">Order Date:</label>
-        <input type="date" id="orderDateCustomer">
-
-        <label for="customerName">Customer Name:</label>
-        <input type="text" id="customerName" placeholder="Jen">
-
-        <label for="itemName">Item Name:</label>
-        <input type="text" id="itemName" placeholder="Earrings">
-
-        <label for="itemPrice">Item Price:</label>
-        <input type="number" id="itemPrice" min="0.01" step="0.01" placeholder="0.00">
-
-        <label for="quantityBought">Quantity Bought:</label>
-        <input type="number" id="quantityBought" min="1" value="1">
-
-        <button onclick="calculateCustomerOrder()">Add Order</button>
-    </div> -->
-
-    <!-- Form for Actual Costs -->
-    <!-- <div id="expensesForm">
-        <h2>Actual Costs</h2>
-
-        <label for="orderDateExpenses">Order Date:</label>
-        <input type="date" id="orderDateExpenses">
-
-        <label for="quantity">Quantity:</label>
-        <input type="number" id="quantity" min="1" value="1">
-
-        <label for="itemCost">Cost Price:</label>
-        <input type="number" id="itemCost" min="0.01" step="0.01" placeholder="0.00">
-
-        <label for="taxes">Taxes (%):</label>
-        <input type="number" id="taxes" min="0" placeholder="0">
-
-        <label for="shipping">Shipping Fee:</label>
-        <input type="number" id="shipping" min="0" placeholder="0.00">
-
-        <label for="otherExpenses">Other Expenses:</label>
-        <input type="number" id="otherExpenses" min="0" placeholder="0.00">
-
-        <button onclick="calculateActualCosts()">Add Order</button>
-    </div> -->
-
-    <!-- <div id="orderList">
-        <table id="ordersTable">
-            <thead>
-                <tr>
-                    <th>Order Date</th>
-                    <th>Customer Name</th>
-                    <th>Item Name</th>
-                    <th>Quantity</th>
-                    <th>Total Income</th>
-                    <th>Total Expenses</th>
-                    <th>Balance</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-    </div> -->
-
-        <!-- <button onclick="saveOrders()">Save Orders</button>
-        <button onclick="loadOrders()">Load Orders</button>
-        <button onclick="exportOrdersToCSV()">Export Orders to CSV</button>
-    </div> -->
-    
+    <!-- Apex Charts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.2/apexcharts.min.js"></script>
     <script src="script.js"></script>
+    <script>initializeChart()</script>
 </body>
 </html>
