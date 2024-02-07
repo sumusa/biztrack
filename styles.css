@@ -427,17 +427,17 @@ tfoot td a {
     justify-content: left;
     padding: 5px 6px;
 }
-.status option[value="Pending"] {
-    background: #e4927370;
+.pending {
+    background: #e4927380;
 }
-select option[value="Being Fulfilled"] {
-    background: #e4cf7370;
+.processing {
+    background: #e4cf7380;
 }
 .shipped {
-    background: #24967270;
+    background: #9AADBF80;
 }
 .delivered {
-    background: #9AADBF80;
+    background: #24967280;
 }
 
 .action {

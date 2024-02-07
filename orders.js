@@ -118,12 +118,18 @@ function newOrder(event) {
 }
 
 function renderOrders(orders) {
-  const orderTableBody = document.getElementById("tableBody");
-  orderTableBody.innerHTML = "";
+    const orderTableBody = document.getElementById("tableBody");
+    orderTableBody.innerHTML = "";
 
-  const orderToRender = orders;
+    const orderToRender = orders;
+    const statusMap = {
+        "Pending": "pending",
+        "Processing": "processing",
+        "Shipped": "shipped",
+        "Delivered": "delivered"
+    }
 
-  orderToRender.forEach(order => {
+    orderToRender.forEach(order => {
       const orderRow = document.createElement("tr");
       orderRow.className = "order-row";
 
@@ -147,7 +153,7 @@ function renderOrders(orders) {
         <td>$${order.taxes.toFixed(2)}</td>
         <td>$${order.orderTotal.toFixed(2)}</td>
         <td>
-            <div class="status"><span>${order.orderStatus}</span></div>
+            <div class="status ${statusMap[order.orderStatus]}"><span>${order.orderStatus}</span></div>
         </td>
         <td class="action">
             <button class="edit-icon" onclick="editRow('${order.orderID}')">Edit</button>
@@ -200,14 +206,18 @@ function updateOrder(orderID) {
     const indexToUpdate = orders.findIndex(order => order.orderID === orderID);
 
     if (indexToUpdate !== -1) {
+        const itemPrice = parseFloat(document.getElementById("item-price").value);
+        const qtyBought = parseInt(document.getElementById("qty-bought").value);
+        const shipping = parseFloat(document.getElementById("shipping").value);
+        const taxes = parseFloat(document.getElementById("taxes").value);
         const updatedOrder = {
             orderID: document.getElementById("order-id").value,
             orderDate: document.getElementById("order-date").value,
             itemName: document.getElementById("item-name").value,
-            itemPrice: parseFloat(document.getElementById("item-price").value),
-            qtyBought: parseInt(document.getElementById("qty-bought").value),
-            shipping: parseFloat(document.getElementById("shipping").value),
-            taxes: parseFloat(document.getElementById("taxes").value),
+            itemPrice: itemPrice,
+            qtyBought: qtyBought,
+            shipping: shipping,
+            taxes: taxes,
             orderTotal: ((itemPrice * qtyBought) + shipping + taxes),
             orderStatus: document.getElementById("order-status").value,
         };
