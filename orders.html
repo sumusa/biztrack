@@ -36,7 +36,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="./finances.html">
                     <i class="fas fa-sack-dollar"></i>
                     <span>Finances</span>
                 </a>
@@ -71,7 +71,7 @@
     <div class="main-content">
         <div class="header-wrapper">
             <div class="header-title">
-                <span>Primary</span>
+                <!-- <span>Primary</span> -->
                 <h2>Orders</h2>
             </div>
             <div class="user-info">
@@ -86,7 +86,7 @@
         <div class="table-wrapper">
             <div class="product-title">
                 <h3 class="main-title">Orders</h3>
-                <div class="product-button">
+                <div class="order-button">
                     <button class="add-button" onclick="openForm()">New Order</button>
                     <button class="download-button" onclick="exportToCSV()">Export to CSV</button>
                 </div>
@@ -189,15 +189,16 @@
                     </thead>
                     <tbody id="tableBody">
                     </tbody>
-                    <!-- <tfoot>
+                    <tfoot>
                         <tr>
-                            <td colspan="11"><a href="#">View more orders</a></td>
+                            <td colspan="10">
+                                <div id="total-revenue"></div>
+                            </td>
                         </tr>
-                    </tfoot> -->
+                    </tfoot>
                 </table>
             </div>
         </div>
-    </div>
     </div>
 
     <script src="orders.js"></script>

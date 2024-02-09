@@ -36,7 +36,7 @@ function init() {
             shipping: 3.50,
             taxes: 6.00,
             orderTotal: 40.50,
-            orderStatus: "Being Fulfilled"
+            orderStatus: "Processing"
         },
         {
             orderID: "1003",
@@ -163,7 +163,22 @@ function renderOrders(orders) {
       orderTableBody.appendChild(orderRow);
   });
   // updateSummary();
+  displayRevenue();
 }
+
+function displayRevenue() {
+    const resultElement = document.getElementById("total-revenue");
+
+    const totalRevenue = orders
+        .reduce((total, order) => total + order.orderTotal, 0);
+
+    // const netProfit = totalRevenue - totalExpenses;
+
+    resultElement.innerHTML = `
+        <span>Total Revenue: $${totalRevenue.toFixed(2)}</span>
+    `;
+}
+
 
 function editRow(orderID) {
   const orderToEdit = orders.find(order => order.orderID === orderID);

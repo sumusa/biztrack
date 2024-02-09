@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <title>BizTrack Finances</title>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <a href="./index.html">
+                <i class="fas fa-b"></i>
+                <span>BizTrack</span>
+            </a>
+        </div>
+        <ul class="menu">
+            <li>
+                <a href="./index.html">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="./products.html">
+                    <i class="fas fa-dolly"></i>
+                    <span>Products</span>
+                </a>
+            </li>
+            <li>
+                <a href="./orders.html">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Orders</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="./finances.html">
+                    <i class="fas fa-sack-dollar"></i>
+                    <span>Finances</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Help</span>
+                </a>
+            </li>
+            <!-- <li>
+                <a href="#">
+                    <i class="fas fa-star"></i>
+                    <span>Feedback</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li> -->
+            <li class="logout">
+                <a href="#">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="main-content">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <!-- <span>Primary</span> -->
+                <h2>Finances</h2>
+            </div>
+            <div class="user-info">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search">
+                </div>
+                <i class="fas fa-user-alt fa-xl"></i>
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <div class="product-title">
+                <h3 class="main-title">Finances</h3>
+                <div class="finance-button">
+                    <button class="add-button" onclick="openForm()">New Transaction</button>
+                    <button class="download-button" onclick="exportToCSV()">Export to CSV</button>
+                </div>
+            </div>
+
+            <div class="form-popup">
+                <form class="form-container" id="transaction-form" onsubmit="newTransaction(event)">
+                    <div class="form-columns">
+                            <label for="tr-date"><b>Date: </b></label>
+                            <input type="date" id="tr-date" required>
+
+                            <label for="tr-category"><b>Category: </b></label>
+                            <select name="tr-category" id="tr-category" required>
+                                <option value="" disabled selected hidden>Choose an expense category</option>
+                                <option value="Rent">Rent</option>
+                                <option value="Utilities">Utilities</option>
+                                <option value="Supplies">Supplies</option>
+                                <option value="Order Fulfillment">Order Fulfillment</option>
+                                <option value="Miscellaneous">Miscellaneous</option>
+                            </select>
+
+                            <label for="tr-amount"><b>Amount: </b></label>
+                            <input type="number" id="tr-amount" placeholder="$0.00" min="0.00" max="10000.00" step="0.01" required>
+
+                            <label for="tr-notes"><b>Notes: </b></label>
+                            <input type="text" id="tr-notes" placeholder="Power bill" required>
+                    </div>
+                    
+                    <div class="button-col">
+                        <button type="submit" class="btn" id="submitBtn">Done</button>
+                        <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="table-container">
+                <table id="finance-table">
+                    <thead>
+                        <tr>
+                            <th onclick="sortTable('trID')">S/N</th>
+                            <th onclick="sortTable('trDate')">Date</th>
+                            <th onclick="sortTable('trCategory')">Expense Category</th>
+                            <th onclick="sortTable('trAmount')">Amount</th>
+                            <th onclick="sortTable('trNotes')">Notes</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="6">
+                                <div id="total-expenses"></div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="finances.js"></script>
+</body>
+</html>
