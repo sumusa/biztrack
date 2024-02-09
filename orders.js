@@ -10,12 +10,12 @@ function closeForm() {
 
 let orders = [];
 
-function init() {
-  const storedOrders = localStorage.getItem("bizTrackOrders");
-  if (storedOrders) {
-      orders = JSON.parse(storedOrders);
-  } else {
-      orders = [
+window.onload = function () {
+    const storedOrders = localStorage.getItem("bizTrackOrders");
+    if (storedOrders) {
+        orders = JSON.parse(storedOrders);
+    } else {
+        orders = [
         {
             orderID: "1001",
             orderDate: "2024-01-05",
@@ -71,9 +71,9 @@ function init() {
             orderTotal: 11.50,
             orderStatus: "Pending"
         },
-      ];
+        ];
 
-      localStorage.setItem("bizTrackOrders", JSON.stringify(orders));
+        localStorage.setItem("bizTrackOrders", JSON.stringify(orders));
     }
 
     renderOrders(orders);
@@ -177,6 +177,17 @@ function displayRevenue() {
     resultElement.innerHTML = `
         <span>Total Revenue: $${totalRevenue.toFixed(2)}</span>
     `;
+}
+
+function updateRevSummary() {
+    const totalRevenue = orders.reduce((total, order) => total + order.orderTotal, 0);
+    
+    // const profitLoss = totalIncome - totalExpenses;
+
+    document.getElementById("rev-amount").innerHTML = `
+    <span class="amount-value">$${totalRevenue.toFixed(2)}</span>`;
+
+    // document.getElementById("profitLoss").innerText = `$${profitLoss.toFixed(2)}`;
 }
 
 
@@ -332,5 +343,4 @@ function exportToCSV() {
     link.click();
 }
 
-// Initialize the page
-init();
+// init();

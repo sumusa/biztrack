@@ -20,9 +20,9 @@ function init() {
           prodID: "PD001",
           prodName: "Baseball caps",
           prodDesc: "Peace embroidered cap",
-          prodCat: "Hat",
+          prodCat: "Hats",
           prodPrice: 25.00,
-          prodStock: 20
+          prodSold: 20
         },
         {
           prodID: "PD002",
@@ -30,7 +30,7 @@ function init() {
           prodDesc: "Floral lotus printed bottle",
           prodCat: "Drinkware",
           prodPrice: 48.50,
-          prodStock: 10
+          prodSold: 10
         },
         {
           prodID: "PD003",
@@ -38,7 +38,7 @@ function init() {
           prodDesc: "Outdoor enamel mug",
           prodCat: "Drinkware",
           prodPrice: 17.50,
-          prodStock: 70
+          prodSold: 70
         },
         {
           prodID: "PD004",
@@ -46,7 +46,7 @@ function init() {
           prodDesc: "Vibes printed poster",
           prodCat: "Home decor",
           prodPrice: 12.00,
-          prodStock: 60
+          prodSold: 60
         },
         {
           prodID: "PD005",
@@ -54,7 +54,7 @@ function init() {
           prodDesc: "Morrocan print pillow case",
           prodCat: "Accessories",
           prodPrice: 17.00,
-          prodStock: 40
+          prodSold: 40
         },
       ];
 
@@ -72,7 +72,7 @@ function newProduct(event) {
   const prodDesc = document.getElementById("product-desc").value;
   const prodCat = document.getElementById("product-cat").value;
   const prodPrice = parseFloat(document.getElementById("product-price").value);
-  const prodStock = parseInt(document.getElementById("product-stock").value);
+  const prodSold = parseInt(document.getElementById("product-sold").value);
 
   if (isDuplicateID(prodID, null)) {
     alert("Product ID already exists. Please use a unique ID.");
@@ -85,7 +85,7 @@ function newProduct(event) {
     prodDesc,
     prodCat,
     prodPrice,
-    prodStock,
+    prodSold,
   };
 
   products.push(product);
@@ -111,7 +111,7 @@ function renderProducts(products) {
       prodRow.dataset.prodDesc = product.prodDesc;
       prodRow.dataset.prodCat = product.prodCat;
       prodRow.dataset.prodPrice = product.prodPrice;
-      prodRow.dataset.prodStock = product.prodStock;
+      prodRow.dataset.prodSold = product.prodSold;
 
       prodRow.innerHTML = `
           <td>${product.prodID}</td>
@@ -119,7 +119,7 @@ function renderProducts(products) {
           <td>${product.prodDesc}</td>
           <td>${product.prodCat}</td>
           <td>$${product.prodPrice.toFixed(2)}</td>
-          <td>${product.prodStock}</td>
+          <td>${product.prodSold}</td>
           <td class="action">
             <button class="edit-icon" onclick="editRow('${product.prodID}')">Edit</button>
             <i onclick="deleteProduct('${product.prodID}')" class="delete-icon fas fa-trash-alt"></i>
@@ -139,7 +139,7 @@ function editRow(prodID) {
   document.getElementById("product-desc").value = productToEdit.prodDesc;
   document.getElementById("product-cat").value = productToEdit.prodCat;
   document.getElementById("product-price").value = productToEdit.prodPrice;
-  document.getElementById("product-stock").value = productToEdit.prodStock;
+  document.getElementById("product-sold").value = productToEdit.prodSold;
 
   // Change the submit button to update mode
   document.getElementById("submitBtn").textContent = "Update";
@@ -174,7 +174,7 @@ function updateProduct(prodID) {
             prodDesc: document.getElementById("product-desc").value,
             prodCat: document.getElementById("product-cat").value,
             prodPrice: parseFloat(document.getElementById("product-price").value),
-            prodStock: parseInt(document.getElementById("product-stock").value),
+            prodSold: parseInt(document.getElementById("product-sold").value),
         };
 
         // Check for duplicate product IDs
@@ -205,7 +205,7 @@ function sortTable(column) {
     const tbody = document.getElementById("tableBody");
     const rows = Array.from(tbody.querySelectorAll("tr"));
 
-    const isNumeric = column === "prodPrice" || column === "prodStock";
+    const isNumeric = column === "prodPrice" || column === "prodSold";
 
     const sortedRows = rows.sort((a, b) => {
         const aValue = isNumeric ? parseFloat(a.dataset[column]) : a.dataset[column];

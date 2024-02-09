@@ -11,7 +11,7 @@ function closeForm() {
 let transactions = [];
 let serialNumberCounter;
 
-function init() {
+window.onload = function () {
     const storedTransactions = localStorage.getItem("bizTrackTransactions");
     if (storedTransactions) {
         transactions = JSON.parse(storedTransactions);
@@ -21,7 +21,7 @@ function init() {
                 trID: 1,
                 trDate: "2024-01-05",
                 trCategory: "Rent",
-                trAmount: 800.00,
+                trAmount: 100.00,
                 trNotes: "January Rent"
             },
             {
@@ -42,7 +42,7 @@ function init() {
                 trID: 4,
                 trDate: "2024-02-05",
                 trCategory: "Supplies",
-                trAmount: 1800.00,
+                trAmount: 180.00,
                 trNotes: "Embroidery Machine"
             },
             {
@@ -57,9 +57,9 @@ function init() {
         serialNumberCounter = transactions.length + 1
   
         localStorage.setItem("bizTrackTransactions", JSON.stringify(transactions));
-      }
+    }
   
-      renderTransactions(transactions);
+    renderTransactions(transactions);
 }
 
 
@@ -94,6 +94,7 @@ function newTransaction(event) {
 
     serialNumberCounter++;
     displayExpenses();
+    updateExpSummary();
   
     document.getElementById("transaction-form").reset();
 }
@@ -146,6 +147,3 @@ function displayExpenses() {
         <span>Total Expenses: $${totalExpenses.toFixed(2)}</span>
     `;
 }
-
-
-window.onload = init;
