@@ -65,20 +65,22 @@ window.onload = function () {
 
 function newTransaction(event) {
     event.preventDefault();
+    // you can also get form fields from the event as well
+    let trID = event.target[0].value;
     const trDate = document.getElementById("tr-date").value;
     const trCategory = document.getElementById("tr-category").value;
     const trAmount = parseFloat(document.getElementById("tr-amount").value);
     const trNotes = document.getElementById("tr-notes").value;
   
+    // There was no trID here to use (undefined)
     if (isDuplicateID(trID, null)) {
       alert("Transaction ID already exists. Please use a unique ID.");
       return;
     }
 
     serialNumberCounter = transactions.length + 1;
+    trID = serialNumberCounter;
 
-    const trID = serialNumberCounter;
-    
     const transaction = {
       trID,
       trDate,
@@ -94,7 +96,8 @@ function newTransaction(event) {
 
     serialNumberCounter++;
     displayExpenses();
-    updateExpSummary();
+    // TODO: doesn't exist
+    // updateExpSummary();
   
     document.getElementById("transaction-form").reset();
 }
@@ -146,14 +149,20 @@ function displayExpenses() {
 }
 
 function editRow(trID) {
-    const trToEdit = transactions.find(transaction => transaction.trID === trID);
+    // trID being passed in is a string but transaction.trID is a number
+    // need to either use a looser equals (==) or convert to the same type
+    const trToEdit = transactions.find(transaction => transaction.trID == trID);
     
-    document.getElementById("tr-id").value = trToEdit.trDate
+    // there was no tr-id input so there was an exception - added a hidden input
+    document.getElementById("tr-id").value = trToEdit.trID;
     document.getElementById("tr-date").value = trToEdit.trDate;
     document.getElementById("tr-category").value = trToEdit.trCategory;
     document.getElementById("tr-amount").value = trToEdit.trAmount;
     document.getElementById("tr-notes").value = trToEdit.trNotes;
   
+    // probably better to have two buttons - a submit and an update and to have each button
+    // tied to just one event - changing them dynamically could be troublesome 
+    // hide/show the right one based on the situation
     document.getElementById("submitBtn").textContent = "Update";
     document.getElementById("submitBtn").onclick = function() {
         updateTransaction(trID);
@@ -163,6 +172,7 @@ function editRow(trID) {
   }
   
 function deleteTransaction(trID) {
+    // likely a similar issue with string vs number
     const indexToDelete = transactions.findIndex(transaction => transaction.trID === trID);
 
     if (indexToDelete !== -1) {
