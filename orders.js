@@ -162,7 +162,6 @@ function renderOrders(orders) {
       `;
       orderTableBody.appendChild(orderRow);
   });
-  // updateSummary();
   displayRevenue();
 }
 
@@ -172,29 +171,14 @@ function displayRevenue() {
     const totalRevenue = orders
         .reduce((total, order) => total + order.orderTotal, 0);
 
-    // const netProfit = totalRevenue - totalExpenses;
-
     resultElement.innerHTML = `
         <span>Total Revenue: $${totalRevenue.toFixed(2)}</span>
     `;
 }
 
-function updateRevSummary() {
-    const totalRevenue = orders.reduce((total, order) => total + order.orderTotal, 0);
-    
-    // const profitLoss = totalIncome - totalExpenses;
-
-    document.getElementById("rev-amount").innerHTML = `
-    <span class="amount-value">$${totalRevenue.toFixed(2)}</span>`;
-
-    // document.getElementById("profitLoss").innerText = `$${profitLoss.toFixed(2)}`;
-}
-
-
 function editRow(orderID) {
   const orderToEdit = orders.find(order => order.orderID === orderID);
 
-  // Pre-fill the form fields with the existing data for editing
   document.getElementById("order-id").value = orderToEdit.orderID;
   document.getElementById("order-date").value = orderToEdit.orderDate;
   document.getElementById("item-name").value = orderToEdit.itemName;
@@ -205,7 +189,6 @@ function editRow(orderID) {
   document.getElementById("order-total").value = orderToEdit.orderTotal;
   document.getElementById("order-status").value = orderToEdit.orderStatus;
 
-  // Change the submit button to update mode
   document.getElementById("submitBtn").textContent = "Update";
   document.getElementById("submitBtn").onclick = function() {
       updateOrder(orderID);
@@ -215,10 +198,8 @@ function editRow(orderID) {
 }
 
 function deleteOrder(orderID) {
-  // Find the index of the order with the given orderID
   const indexToDelete = orders.findIndex(order => order.orderID === orderID);
 
-  // If the order is found, remove it from the array
   if (indexToDelete !== -1) {
       orders.splice(indexToDelete, 1);
 
@@ -248,7 +229,6 @@ function updateOrder(orderID) {
             orderStatus: document.getElementById("order-status").value,
         };
 
-        // Check for duplicate order IDs
         if (isDuplicateID(updatedOrder.orderID, orderID)) {
             alert("Order ID already exists. Please use a unique ID.");
             return;
@@ -260,7 +240,6 @@ function updateOrder(orderID) {
 
         renderOrders(orders);
 
-        // Reset the form and change the submit button back to add mode
         document.getElementById("order-form").reset();
         document.getElementById("submitBtn").textContent = "Done";
         document.getElementById("submitBtn").onsubmit = newOrder;
@@ -268,7 +247,6 @@ function updateOrder(orderID) {
 }
 
 function isDuplicateID(orderID, currentID) {
-    // Check if the provided orderID already exists in the orders array, excluding the current ID
     return orders.some(order => order.orderID === orderID && order.orderID !== currentID);
 }
 
@@ -276,7 +254,7 @@ function sortTable(column) {
     const tbody = document.getElementById("tableBody");
     const rows = Array.from(tbody.querySelectorAll("tr"));
 
-    const isNumeric = column === "itemPrice" || column === "qtyBought" || column === "shipping"|| column === "taxes";
+    const isNumeric = column === "itemPrice" || column === "qtyBought" || column === "shipping"|| column === "taxes"|| column === "orderTotal";
 
     const sortedRows = rows.sort((a, b) => {
         const aValue = isNumeric ? parseFloat(a.dataset[column]) : a.dataset[column];
@@ -318,29 +296,23 @@ function exportToCSV() {
 
     const csvContent = [];
     
-    // Header row
     const header = Array.from(table.querySelectorAll("thead th")).map(th => th.textContent);
-    // Exclude the last column from the header
+
     header.pop();
     csvContent.push(header.join(','));
 
-    // Data rows
     rows.forEach(row => {
         const rowData = Array.from(row.children).map(cell => cell.textContent);
-        // Exclude the last column from each data row
+
         rowData.pop();
         csvContent.push(rowData.join(','));
     });
 
-    // Combine rows into a CSV string
     const csvString = csvContent.join('\n');
 
-    // Create a Blob object and initiate a download
     const blob = new Blob([csvString], { type: 'text/csv' });
     const link = document.createElement('a');
     link.href = window.URL.createObjectURL(blob);
     link.download = 'biztrack_order_table.csv';
     link.click();
 }
-
-// init();
