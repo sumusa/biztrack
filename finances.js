@@ -119,7 +119,7 @@ function renderTransactions(transactions) {
             <td class="tr-amount">${formattedAmount}</td>
             <td>${transaction.trNotes}</td>
             <td class="action">
-                <button class="edit-icon" onclick="editRow('${transaction.trID}')">Edit</button>
+                <i onclick="editRow('${transaction.trID}')" class="edit-icon fa-solid fa-pen-to-square"></i>
                 <i onclick="deleteTransaction('${transaction.trID}')" class="delete-icon fas fa-trash-alt"></i>
             </td> 
         `;

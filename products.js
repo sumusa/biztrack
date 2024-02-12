@@ -121,7 +121,7 @@ function renderProducts(products) {
           <td>$${product.prodPrice.toFixed(2)}</td>
           <td>${product.prodSold}</td>
           <td class="action">
-            <button class="edit-icon" onclick="editRow('${product.prodID}')">Edit</button>
+            <i onclick="editRow('${product.prodID}')" class="edit-icon fa-solid fa-pen-to-square"></i>
             <i onclick="deleteProduct('${product.prodID}')" class="delete-icon fas fa-trash-alt"></i>
           </td>
       `;

@@ -156,7 +156,7 @@ function renderOrders(orders) {
             <div class="status ${statusMap[order.orderStatus]}"><span>${order.orderStatus}</span></div>
         </td>
         <td class="action">
-            <button class="edit-icon" onclick="editRow('${order.orderID}')">Edit</button>
+            <i onclick="editRow('${order.orderID}')" class="edit-icon fa-solid fa-pen-to-square"></i>
             <i onclick="deleteOrder('${order.orderID}')" class="delete-icon fas fa-trash-alt"></i>
           </td> 
       `;

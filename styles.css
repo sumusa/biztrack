@@ -179,7 +179,7 @@ body {
 .main-title {
     color: var(--brown-color);
     padding-bottom: 10px;
-    font-size: 17px;
+    font-size: 20px;
 }
 .order-button button {
     background: var(--blue-color);
@@ -468,10 +468,10 @@ tfoot td {
 .status {
     border-radius: 20px;
     color: var(--black-color);
-    width: 120px;
+    width: 100px;
     display: flex;
     justify-content: center;
-    padding: 5px 6px;
+    padding: 4px;
 }
 .pending {
     background: #e4927380;
@@ -491,7 +491,7 @@ tfoot td {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 15px;
+    gap: 10px;
 }
 .action i {
     font-size: 1rem;
@@ -501,8 +501,63 @@ tfoot td {
 .action i:hover {
     transform: scale(1.2);
 }
-.edit-icon {
+
+.guide-container {
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    /* height: 100vh; */
+}
+p, ol {
+    padding-bottom: 1rem;
+    padding-top: 10px;
+    font-size: 17px;
+}
+ol {
+    padding-left: 4rem;
+}
+.contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 1rem;
+    gap: 2rem;
+    list-style: none;
+}
+.contact-icon a {
+    text-decoration: none;
+}
+.fa-linkedin,
+.fa-square-github,
+.fa-envelope {
     color: var(--black-color);
+    font-size: 1.8rem;
+}
+.fa-linkedin:hover,
+.fa-square-github:hover,
+.fa-envelope:hover {
+    color: var(--brown-color);
+}
+
+
+
+/* ---------- SCROLLBARS ---------- */
+
+/* ::-webkit-scrollbar {
+    width: 6px;
+    height: 5px;
+} */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #a5aaad;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgb(195, 191, 191);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #a5aaad;
 }
 
 
