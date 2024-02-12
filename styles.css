@@ -284,7 +284,7 @@ label {
     background-color: var(--orange-color);
 }
 .form-container .btn:hover, .open-button:hover {
-opacity: 1;
+    opacity: 1;
 }
 
 
@@ -405,9 +405,11 @@ opacity: 1;
     width: 100%;
 }
 .table-container button {
-    color: var(--green-color);
+    color: var(--brown-color);
     background: none;
     cursor: pointer;
+    font-size: 0.9rem;
+    text-decoration: underline;
 }
 table {
     width: 100%;
@@ -455,6 +457,14 @@ tfoot td {
 #total-revenue {
     color: #33d8a4;
 }
+.tr-amount {
+    color: #e8754c;
+    font-weight: 700;
+}
+.order-total {
+    color: #38b48d;
+    font-weight: 700;
+}
 .status {
     border-radius: 20px;
     color: var(--black-color);
@@ -490,6 +500,9 @@ tfoot td {
 }
 .action i:hover {
     transform: scale(1.2);
+}
+.edit-icon {
+    color: var(--black-color);
 }
 
 

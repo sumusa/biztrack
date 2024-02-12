@@ -151,7 +151,7 @@ function renderOrders(orders) {
         <td>${order.qtyBought}</td>
         <td>$${order.shipping.toFixed(2)}</td>
         <td>$${order.taxes.toFixed(2)}</td>
-        <td>$${order.orderTotal.toFixed(2)}</td>
+        <td class="order-total">$${order.orderTotal.toFixed(2)}</td>
         <td>
             <div class="status ${statusMap[order.orderStatus]}"><span>${order.orderStatus}</span></div>
         </td>

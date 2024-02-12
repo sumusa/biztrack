@@ -42,7 +42,7 @@ window.onload = function () {
   `;
 
   balDiv.innerHTML = `
-    <span class="title">Net Balance</span>
+    <span class="title">Balance</span>
     <span class="amount-value">$${totalBalance.toFixed(2)}</span>
   `;
 
@@ -106,7 +106,7 @@ function initializeChart() {
           borderRadius: 3,
           horizontal: false,
           columnWidth: '50%',
-          },
+        },
       },
       dataLabels: {
         enabled: false,
@@ -131,6 +131,13 @@ function initializeChart() {
           show: false,
         },
       },
+      tooltip: {
+        y: {
+          formatter: function (val) {
+            return '$' + val.toFixed(2);
+          }
+        }
+      }
     };
     
   const barChart = new ApexCharts(
@@ -139,61 +146,69 @@ function initializeChart() {
   barChart.render();
 
 
+  // DONUT CHART
 
+  function calculateCategoryExp(transactions) {
+    const categoryExpenses = {};
 
+    transactions.forEach(transaction => {
+      const category = transaction.trCategory;
 
-  // AREA CHART
-const areaChartOptions = {
-    series: [
-      {
-        name: 'Revenue',
-        data: [35, 40, 28, 51, 42, 109, 100],
-      },
-      {
-        name: 'Expenses',
-        data: [11, 32, 45, 32, 34, 52, 41],
-      },
-    ],
+      if (!categoryExpenses[category]) {
+        categoryExpenses[category] = 0;
+      }
+
+      categoryExpenses[category] += transaction.trAmount;
+    });
+
+    return categoryExpenses;
+  }
+
+  const expItems = JSON.parse(localStorage.getItem('bizTrackTransactions')) || [];
+  const categoryExpData = calculateCategoryExp(expItems);
+
+  const donutChartOptions = {
+    series: Object.values(categoryExpData),
+    labels: Object.keys(categoryExpData),
     chart: {
       height: 350,
-      type: 'area',
+      type: 'donut',
+      width: '100%',
       toolbar: {
         show: false,
       },
     },
-    colors: ['#e49273', '#247BA0'],
+    colors: ['#00D8B6','#008FFB',  '#FEB019', '#FF4560', '#775DD0'],
     dataLabels: {
       enabled: false,
     },
-    stroke: {
-      curve: 'smooth',
-    },
-    labels: ['Jul 2023', 'Aug 2023', 'Sep 2023', 'Oct 2023', 'Nov 2023', 'Dec 2023', 'Jan 2024'],
-    markers: {
-      size: 0,
-    },
-    yaxis: [
-      {
-        title: {
-          text: 'Revenue ($)',
+    plotOptions: {
+      pie: {
+        customScale: 0.8,
+        donut: {
+          size: '75%',
         },
+        offsetY: 20,
       },
-      {
-        opposite: true,
-        title: {
-          text: 'Expenses ($)',
-        },
-      },
-    ],
-    tooltip: {
-      shared: true,
-      intersect: false,
+      stroke: {
+        colors: undefined
+      }
     },
+    // title: {
+    //   text: 'Expenses Category',
+    //   style: {
+    //     fontSize: '18px'
+    //   }
+    // },
+    legend: {
+      position: 'left',
+      offsetY: 80,
+    }
   };
   
-  const areaChart = new ApexCharts(
-    document.querySelector('#area-chart'),
-    areaChartOptions
+  const donutChart = new ApexCharts(
+    document.querySelector('#donut-chart'),
+    donutChartOptions
   );
-  areaChart.render();
+  donutChart.render();
 };

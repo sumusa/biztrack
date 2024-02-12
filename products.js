@@ -34,9 +34,9 @@ function init() {
         },
         {
           prodID: "PD003",
-          prodName: "Mugs",
-          prodDesc: "Outdoor enamel mug",
-          prodCat: "Drinkware",
+          prodName: "Sweatshirt",
+          prodDesc: "Palestine sweater",
+          prodCat: "Clothing",
           prodPrice: 17.50,
           prodSold: 70
         },
