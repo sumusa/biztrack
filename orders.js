@@ -153,15 +153,20 @@ function renderOrders(orders) {
       orderRow.dataset.orderTotal = order.orderTotal;
       orderRow.dataset.orderStatus = order.orderStatus;
 
+      const formattedPrice = typeof order.itemPrice === 'number' ? `$${order.itemPrice.toFixed(2)}` : '';
+      const formattedShipping = typeof order.shipping === 'number' ? `$${order.shipping.toFixed(2)}` : '';
+      const formattedTaxes = typeof order.taxes === 'number' ? `$${order.taxes.toFixed(2)}` : '';
+      const formattedTotal = typeof order.orderTotal === 'number' ? `$${order.orderTotal.toFixed(2)}` : '';
+
       orderRow.innerHTML = `
         <td>${order.orderID}</td>
         <td>${order.orderDate}</td>
         <td>${order.itemName}</td>
-        <td>$${order.itemPrice.toFixed(2)}</td>
+        <td>${formattedPrice}</td>
         <td>${order.qtyBought}</td>
-        <td>$${order.shipping.toFixed(2)}</td>
-        <td>$${order.taxes.toFixed(2)}</td>
-        <td class="order-total">$${order.orderTotal.toFixed(2)}</td>
+        <td>${formattedShipping}</td>
+        <td>${formattedTaxes}</td>
+        <td class="order-total">${formattedTotal}</td>
         <td>
             <div class="status ${statusMap[order.orderStatus]}"><span>${order.orderStatus}</span></div>
         </td>
@@ -300,29 +305,39 @@ function performSearch() {
     });
 }
 
+
 function exportToCSV() {
-    const table = document.getElementById("order-table");
-    const rows = table.querySelectorAll("tbody tr");
-
-    const csvContent = [];
-    
-    const header = Array.from(table.querySelectorAll("thead th")).map(th => th.textContent);
-
-    header.pop();
-    csvContent.push(header.join(','));
-
-    rows.forEach(row => {
-        const rowData = Array.from(row.children).map(cell => cell.textContent);
-
-        rowData.pop();
-        csvContent.push(rowData.join(','));
+    const ordersToExport = orders.map(order => {
+        return {
+            orderID: order.orderID,
+            orderDate: order.orderDate,
+            itemName: order.itemName,
+            itemPrice: order.itemPrice.toFixed(2),
+            qtyBought: order.qtyBought,
+            shipping: order.shipping.toFixed(2),
+            taxes: order.taxes.toFixed(2),
+            orderTotal: order.orderTotal.toFixed(2),
+            orderStatus: order.orderStatus,
+        };
     });
-
-    const csvString = csvContent.join('\n');
-
-    const blob = new Blob([csvString], { type: 'text/csv' });
+  
+    const csvContent = generateCSV(ordersToExport);
+  
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+  
     const link = document.createElement('a');
     link.href = window.URL.createObjectURL(blob);
     link.download = 'biztrack_order_table.csv';
+  
+    document.body.appendChild(link);
     link.click();
+  
+    document.body.removeChild(link);
+}
+  
+function generateCSV(data) {
+    const headers = Object.keys(data[0]).join(',');
+    const rows = data.map(order => Object.values(order).join(','));
+
+    return `${headers}\n${rows.join('\n')}`;
 }

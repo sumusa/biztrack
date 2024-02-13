@@ -243,30 +243,38 @@ function performSearch() {
     });
 }
 
+
 function exportToCSV() {
-    const table = document.getElementById("product-table");
-    const rows = table.querySelectorAll("tbody tr");
+  const productsToExport = products.map(product => {
+      return {
+        prodID: product.prodID,
+        prodName: product.prodName,
+        prodDesc: product.prodDesc,
+        prodCategory: product.prodCat,
+        prodPrice: product.prodPrice.toFixed(2),
+        QtySold: product.prodSold,
+      };
+  });
 
-    const csvContent = [];
-    const header = Array.from(table.querySelectorAll("thead th")).map(th => th.textContent);
-  
-    header.pop();
-    csvContent.push(header.join(','));
+  const csvContent = generateCSV(productsToExport);
 
-    rows.forEach(row => {
-        const rowData = Array.from(row.children).map(cell => cell.textContent);
-        // Exclude the last column from each data row
-        rowData.pop();
-        csvContent.push(rowData.join(','));
-    });
+  const blob = new Blob([csvContent], { type: 'text/csv' });
 
-    const csvString = csvContent.join('\n');
+  const link = document.createElement('a');
+  link.href = window.URL.createObjectURL(blob);
+  link.download = 'biztrack_product_table.csv';
 
-    const blob = new Blob([csvString], { type: 'text/csv' });
-    const link = document.createElement('a');
-    link.href = window.URL.createObjectURL(blob);
-    link.download = 'biztrack_product_table.csv';
-    link.click();
+  document.body.appendChild(link);
+  link.click();
+
+  document.body.removeChild(link);
+}
+
+function generateCSV(data) {
+  const headers = Object.keys(data[0]).join(',');
+  const rows = data.map(order => Object.values(order).join(','));
+
+  return `${headers}\n${rows.join('\n')}`;
 }
 
 init();

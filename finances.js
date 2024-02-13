@@ -243,29 +243,35 @@ function performSearch() {
     });
 }
 
+
 function exportToCSV() {
-    const table = document.getElementById("transaction-table");
-    const rows = table.querySelectorAll("tbody tr");
-
-    const csvContent = [];
-    
-    const header = Array.from(table.querySelectorAll("thead th")).map(th => th.textContent);
-
-    header.pop();
-    csvContent.push(header.join(','));
-
-    rows.forEach(row => {
-        const rowData = Array.from(row.children).map(cell => cell.textContent);
-        
-        rowData.pop();
-        csvContent.push(rowData.join(','));
+    const transactionsToExport = transactions.map(transaction => {
+        return {
+            trID: transaction.trID,
+            trDate: transaction.trDate,
+            trCategory: transaction.trCategory,
+            trAmount: transaction.trAmount.toFixed(2),
+            trNotes: transaction.trNotes,
+        };
     });
-
-    const csvString = csvContent.join('\n');
-
-    const blob = new Blob([csvString], { type: 'text/csv' });
+  
+    const csvContent = generateCSV(transactionsToExport);
+  
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+  
     const link = document.createElement('a');
     link.href = window.URL.createObjectURL(blob);
-    link.download = 'biztrack_finances.csv';
+    link.download = 'biztrack_transaction_table.csv';
+  
+    document.body.appendChild(link);
     link.click();
+  
+    document.body.removeChild(link);
+}
+  
+function generateCSV(data) {
+    const headers = Object.keys(data[0]).join(',');
+    const rows = data.map(order => Object.values(order).join(','));
+
+    return `${headers}\n${rows.join('\n')}`;
 }
