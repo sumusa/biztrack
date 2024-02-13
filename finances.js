@@ -1,4 +1,14 @@
 
+function openSidebar() {
+    var side = document.getElementById('sidebar');
+    side.style.display = (side.style.display === "block") ? "none" : "block";
+}
+
+function closeSidebar() {
+    document.getElementById('sidebar').style.display = 'none';
+}
+
+
 function openForm() {
     var form = document.getElementById("transaction-form")
     form.style.display = (form.style.display === "block") ? "none" : "block";
@@ -7,6 +17,7 @@ function openForm() {
 function closeForm() {
     document.getElementById("transaction-form").style.display = "none";
 }
+
 
 let transactions = [];
 let serialNumberCounter;
@@ -119,7 +130,7 @@ function renderTransactions(transactions) {
             <td class="tr-amount">${formattedAmount}</td>
             <td>${transaction.trNotes}</td>
             <td class="action">
-                <i onclick="editRow('${transaction.trID}')" class="edit-icon fa-solid fa-pen-to-square"></i>
+                <i title="Edit" onclick="editRow('${transaction.trID}')" class="edit-icon fa-solid fa-pen-to-square"></i>
                 <i onclick="deleteTransaction('${transaction.trID}')" class="delete-icon fas fa-trash-alt"></i>
             </td> 
         `;

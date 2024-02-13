@@ -1,4 +1,14 @@
 
+function openSidebar() {
+    var side = document.getElementById('sidebar');
+    side.style.display = (side.style.display === "block") ? "none" : "block";
+}
+
+function closeSidebar() {
+    document.getElementById('sidebar').style.display = 'none';
+}
+
+
 function openForm() {
     var form = document.getElementById("order-form")
     form.style.display = (form.style.display === "block") ? "none" : "block";
@@ -156,7 +166,7 @@ function renderOrders(orders) {
             <div class="status ${statusMap[order.orderStatus]}"><span>${order.orderStatus}</span></div>
         </td>
         <td class="action">
-            <i onclick="editRow('${order.orderID}')" class="edit-icon fa-solid fa-pen-to-square"></i>
+            <i title="Edit" onclick="editRow('${order.orderID}')" class="edit-icon fa-solid fa-pen-to-square"></i>
             <i onclick="deleteOrder('${order.orderID}')" class="delete-icon fas fa-trash-alt"></i>
           </td> 
       `;

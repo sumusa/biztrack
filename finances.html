@@ -9,12 +9,13 @@
     <title>BizTrack Finances</title>
 </head>
 <body>
-    <div class="sidebar">
+    <div id="sidebar" class="sidebar">
         <div class="logo">
             <a href="./index.html">
                 <i class="fas fa-b"></i>
                 <span>BizTrack</span>
             </a>
+            <i class="fa-solid fa-xmark" title="Close" onclick="closeSidebar()"></i>
         </div>
         <ul class="menu">
             <li>
@@ -47,29 +48,20 @@
                     <span>Help</span>
                 </a>
             </li>
-            <!-- <li>
-                <a href="#">
-                    <i class="fas fa-star"></i>
-                    <span>Feedback</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fas fa-cog"></i>
-                    <span>Settings</span>
-                </a>
-            </li> -->
             <li class="logout">
                 <a href="#">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Logout</span>
+                    <i class="fa-solid fa-users-line"></i>
+                    <span>About</span>
                 </a>
             </li>
         </ul>
     </div>
-    
+
     <div class="main-content">
         <div class="header-wrapper">
+            <div class="menu-icon" onclick="openSidebar()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
             <div class="header-title">
                 <!-- <span>Primary</span> -->
                 <h2>Finances</h2>
@@ -79,7 +71,7 @@
                     <i class="fas fa-search"></i>
                     <input type="text" id="searchInput" placeholder="Search">
                 </div>
-                <i class="fas fa-user-alt fa-xl"></i>
+                <!-- <i class="fas fa-user-alt fa-xl"></i> -->
             </div>
         </div>
 

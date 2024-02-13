@@ -1,4 +1,14 @@
 
+function openSidebar() {
+  var side = document.getElementById('sidebar');
+  side.style.display = (side.style.display === "block") ? "none" : "block";
+}
+
+function closeSidebar() {
+  document.getElementById('sidebar').style.display = 'none';
+}
+
+
 function openForm() {
     var form = document.getElementById("product-form")
     form.style.display = (form.style.display === "block") ? "none" : "block";
@@ -7,6 +17,7 @@ function openForm() {
 function closeForm() {
     document.getElementById("product-form").style.display = "none";
 }
+
 
 let products = [];
 
@@ -121,19 +132,17 @@ function renderProducts(products) {
           <td>$${product.prodPrice.toFixed(2)}</td>
           <td>${product.prodSold}</td>
           <td class="action">
-            <i onclick="editRow('${product.prodID}')" class="edit-icon fa-solid fa-pen-to-square"></i>
+            <i title="Edit" onclick="editRow('${product.prodID}')" class="edit-icon fa-solid fa-pen-to-square"></i>
             <i onclick="deleteProduct('${product.prodID}')" class="delete-icon fas fa-trash-alt"></i>
           </td>
       `;
       prodTableBody.appendChild(prodRow);
   });
-  // updateSummary();
 }
 
 function editRow(prodID) {
   const productToEdit = products.find(product => product.prodID === prodID);
 
-  // Pre-fill the form fields with the existing data for editing
   document.getElementById("product-id").value = productToEdit.prodID;
   document.getElementById("product-name").value = productToEdit.prodName;
   document.getElementById("product-desc").value = productToEdit.prodDesc;
@@ -141,7 +150,6 @@ function editRow(prodID) {
   document.getElementById("product-price").value = productToEdit.prodPrice;
   document.getElementById("product-sold").value = productToEdit.prodSold;
 
-  // Change the submit button to update mode
   document.getElementById("submitBtn").textContent = "Update";
   document.getElementById("submitBtn").onclick = function() {
       updateProduct(prodID);
@@ -151,10 +159,8 @@ function editRow(prodID) {
 }
 
 function deleteProduct(prodID) {
-  // Find the index of the product with the given prodID
   const indexToDelete = products.findIndex(product => product.prodID === prodID);
 
-  // If the product is found, remove it from the array
   if (indexToDelete !== -1) {
       products.splice(indexToDelete, 1);
 
@@ -177,7 +183,6 @@ function updateProduct(prodID) {
             prodSold: parseInt(document.getElementById("product-sold").value),
         };
 
-        // Check for duplicate product IDs
         if (isDuplicateID(updatedProduct.prodID, prodID)) {
             alert("Product ID already exists. Please use a unique ID.");
             return;
@@ -189,7 +194,6 @@ function updateProduct(prodID) {
 
         renderProducts(products);
 
-        // Reset the form and change the submit button back to add mode
         document.getElementById("product-form").reset();
         document.getElementById("submitBtn").textContent = "Done";
         document.getElementById("submitBtn").onsubmit = newProduct;
@@ -197,7 +201,6 @@ function updateProduct(prodID) {
 }
 
 function isDuplicateID(prodID, currentID) {
-    // Check if the provided prodID already exists in the products array, excluding the current ID
     return products.some(product => product.prodID === prodID && product.prodID !== currentID);
 }
 
@@ -212,7 +215,6 @@ function sortTable(column) {
         const bValue = isNumeric ? parseFloat(b.dataset[column]) : b.dataset[column];
 
         if (typeof aValue === "string" && typeof bValue === "string") {
-            // Case-insensitive string comparison for text columns
             return aValue.localeCompare(bValue, undefined, { sensitivity: "base" });
         } else {
             return aValue - bValue;
@@ -246,14 +248,11 @@ function exportToCSV() {
     const rows = table.querySelectorAll("tbody tr");
 
     const csvContent = [];
-    
-    // Header row
     const header = Array.from(table.querySelectorAll("thead th")).map(th => th.textContent);
-    // Exclude the last column from the header
+  
     header.pop();
     csvContent.push(header.join(','));
 
-    // Data rows
     rows.forEach(row => {
         const rowData = Array.from(row.children).map(cell => cell.textContent);
         // Exclude the last column from each data row
@@ -261,10 +260,8 @@ function exportToCSV() {
         csvContent.push(rowData.join(','));
     });
 
-    // Combine rows into a CSV string
     const csvString = csvContent.join('\n');
 
-    // Create a Blob object and initiate a download
     const blob = new Blob([csvString], { type: 'text/csv' });
     const link = document.createElement('a');
     link.href = window.URL.createObjectURL(blob);
@@ -272,5 +269,4 @@ function exportToCSV() {
     link.click();
 }
 
-// Initialize the page
 init();

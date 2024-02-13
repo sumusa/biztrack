@@ -9,12 +9,13 @@
     <title>Orders</title>
 </head>
 <body>
-    <div class="sidebar">
+    <div id="sidebar" class="sidebar">
         <div class="logo">
             <a href="./index.html">
                 <i class="fas fa-b"></i>
                 <span>BizTrack</span>
             </a>
+            <i class="fa-solid fa-xmark" title="Close" onclick="closeSidebar()"></i>
         </div>
         <ul class="menu">
             <li>
@@ -47,29 +48,20 @@
                     <span>Help</span>
                 </a>
             </li>
-            <!-- <li>
-                <a href="#">
-                    <i class="fas fa-star"></i>
-                    <span>Feedback</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fas fa-cog"></i>
-                    <span>Settings</span>
-                </a>
-            </li> -->
             <li class="logout">
                 <a href="#">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Logout</span>
+                    <i class="fa-solid fa-users-line"></i>
+                    <span>About</span>
                 </a>
             </li>
         </ul>
     </div>
-    
+
     <div class="main-content">
         <div class="header-wrapper">
+            <div class="menu-icon" onclick="openSidebar()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
             <div class="header-title">
                 <!-- <span>Primary</span> -->
                 <h2>Orders</h2>
@@ -79,7 +71,7 @@
                     <i class="fas fa-search"></i>
                     <input type="text" id="searchInput" placeholder="Search">
                 </div>
-                <i class="fas fa-user-alt fa-xl"></i>
+                <!-- <i class="fas fa-user-alt fa-xl"></i> -->
             </div>
         </div>
 
@@ -147,9 +139,6 @@
                         </div>
 
                         <div class="order-third-col">
-                            <label for="order-total"><b>Total Order Amount:</b></label>
-                            <input type="number" id="order-total" placeholder="$0.00" min="0.00" max="10000.00" step="0.01">
-
                             <label for="taxes"><b>Taxes (VAT/GST/HST):</b></label>
                             <input type="number" id="taxes" placeholder="$2.00" min="0.00" max="10000.00" step="0.01" required>
 
@@ -161,6 +150,9 @@
                                 <option value="Shipped" class="shipped">Shipped</option>
                                 <option value="Delivered" class="delivered">Delivered</option>
                             </select>
+
+                            <label for="order-total"><b>Total Order Amount: <small>(Calculated)</small></b></label>
+                            <input type="number" id="order-total" placeholder="$0.00" min="0.00" max="10000.00" step="0.01" disabled>
                         </div>
                     </div>
                     
