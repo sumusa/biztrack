@@ -192,24 +192,24 @@ function displayRevenue() {
 }
 
 function editRow(orderID) {
-  const orderToEdit = orders.find(order => order.orderID === orderID);
+    const orderToEdit = orders.find(order => order.orderID === orderID);
 
-  document.getElementById("order-id").value = orderToEdit.orderID;
-  document.getElementById("order-date").value = orderToEdit.orderDate;
-  document.getElementById("item-name").value = orderToEdit.itemName;
-  document.getElementById("item-price").value = orderToEdit.itemPrice;
-  document.getElementById("qty-bought").value = orderToEdit.qtyBought;
-  document.getElementById("shipping").value = orderToEdit.shipping;
-  document.getElementById("taxes").value = orderToEdit.taxes;
-  document.getElementById("order-total").value = orderToEdit.orderTotal;
-  document.getElementById("order-status").value = orderToEdit.orderStatus;
+    document.getElementById("order-id").value = orderToEdit.orderID;
+    document.getElementById("order-date").value = orderToEdit.orderDate;
+    document.getElementById("item-name").value = orderToEdit.itemName;
+    document.getElementById("item-price").value = orderToEdit.itemPrice;
+    document.getElementById("qty-bought").value = orderToEdit.qtyBought;
+    document.getElementById("shipping").value = orderToEdit.shipping;
+    document.getElementById("taxes").value = orderToEdit.taxes;
+    document.getElementById("order-total").value = orderToEdit.orderTotal;
+    document.getElementById("order-status").value = orderToEdit.orderStatus;
 
-  document.getElementById("submitBtn").textContent = "Update";
-  document.getElementById("submitBtn").onclick = function() {
-      updateOrder(orderID);
-  };
+    document.getElementById("submitBtn").textContent = "Update";
+    document.getElementById("submitBtn").onclick = function() {
+        updateOrder(orderID);
+    };
 
-  document.getElementById("order-form").style.display = "block";
+    document.getElementById("order-form").style.display = "block";
 }
 
 function deleteOrder(orderID) {
@@ -257,7 +257,7 @@ function updateOrder(orderID) {
 
         document.getElementById("order-form").reset();
         document.getElementById("submitBtn").textContent = "Done";
-        document.getElementById("submitBtn").onsubmit = newOrder;
+        document.getElementById("submitBtn").onclick = newOrder;
     }
 }
 
