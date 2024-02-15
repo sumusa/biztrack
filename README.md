@@ -33,7 +33,7 @@ Hey there! Welcome to the BizTrack project repository. This project is a result 
 
 ## GitHub Pages
 
-The live version of BizTrack is hosted on GitHub Pages. Check it out [here](sumusa.github.io/biztrack/).
+The live version of BizTrack is hosted on GitHub Pages. Check it out [here](https://sumusa.github.io/biztrack/).
 
 ## Contributing
 
