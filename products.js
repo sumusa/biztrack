@@ -45,7 +45,7 @@ function init() {
         },
         {
           prodID: "PD003",
-          prodName: "Sweatshirt",
+          prodName: "Sweatshirts",
           prodDesc: "Palestine sweater",
           prodCat: "Clothing",
           prodPrice: 17.50,
@@ -75,6 +75,15 @@ function init() {
     renderProducts(products);
 }
 
+function addOrUpdate(event) {
+  let type = document.getElementById("submitBtn").textContent;
+  if (type === 'Add') {
+      newProduct(event);
+  } else if (type === 'Update'){
+      const prodID = document.getElementById("product-id").value;
+      updateProduct(prodID);
+  }
+}
 
 function newProduct(event) {
   event.preventDefault();
@@ -106,6 +115,7 @@ function newProduct(event) {
 
   document.getElementById("product-form").reset();
 }
+
 
 function renderProducts(products) {
   const prodTableBody = document.getElementById("tableBody");
@@ -151,9 +161,6 @@ function editRow(prodID) {
   document.getElementById("product-sold").value = productToEdit.prodSold;
 
   document.getElementById("submitBtn").textContent = "Update";
-  document.getElementById("submitBtn").onclick = function() {
-      updateProduct(prodID);
-  };
 
   document.getElementById("product-form").style.display = "block";
 }
@@ -195,8 +202,7 @@ function updateProduct(prodID) {
         renderProducts(products);
 
         document.getElementById("product-form").reset();
-        document.getElementById("submitBtn").textContent = "Done";
-        document.getElementById("submitBtn").onsubmit = newProduct;
+        document.getElementById("submitBtn").textContent = "Add";
     }
 }
 

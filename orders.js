@@ -95,7 +95,7 @@ function addOrUpdate(event) {
         newOrder(event);
     } else if (type === 'Update'){
         const orderID = document.getElementById("order-id").value;
-        updateOrder(orderID); // convert to number
+        updateOrder(orderID);
     }
 }
 
