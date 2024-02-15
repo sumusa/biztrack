@@ -225,7 +225,10 @@ function initializeChart() {
         height: 350,
         toolbar: {show: false},
       },
-      colors: ['#247BA0', '#A37A74', '#249672', '#e49273', '#9AADBF'],
+      theme: {
+        palette: 'palette9' // upto palette10
+      },
+      // colors: ['#247BA0', '#A37A74', '#249672', '#e49273', '#9AADBF'],
       plotOptions: {
         bar: {
           distributed: true,
@@ -340,9 +343,16 @@ function initializeChart() {
         show: false,
       },
     },
-    colors: ['#00D8B6','#008FFB',  '#FEB019', '#FF4560', '#775DD0'],
+    theme: {
+      palette: 'palette1' // upto palette10
+    },
     dataLabels: {
-      enabled: false,
+      enabled: true,
+      style: {
+        fontSize: '12px',
+        fontFamily: 'Loto, sans-serif',
+        fontWeight: 'regular',
+      },
     },
     plotOptions: {
       pie: {
@@ -359,7 +369,14 @@ function initializeChart() {
     legend: {
       position: 'left',
       offsetY: 80,
-    }
+    },
+    tooltip: {
+      y: {
+        formatter: function (val) {
+          return '$' + val.toFixed(2);
+        }
+      }
+    },
   };
   
   const donutChart = new ApexCharts(
