@@ -89,6 +89,16 @@ window.onload = function () {
     renderOrders(orders);
 }
 
+function addOrUpdate(event) {
+    let type = document.getElementById("submitBtn").textContent;
+    if (type === 'Add') {
+        newOrder(event);
+    } else if (type === 'Update'){
+        const orderID = document.getElementById("order-id").value;
+        updateOrder(orderID); // convert to number
+    }
+}
+
 
 function newOrder(event) {
   event.preventDefault();
@@ -126,6 +136,7 @@ function newOrder(event) {
 
   document.getElementById("order-form").reset();
 }
+
 
 function renderOrders(orders) {
     const orderTableBody = document.getElementById("tableBody");
@@ -205,9 +216,6 @@ function editRow(orderID) {
     document.getElementById("order-status").value = orderToEdit.orderStatus;
 
     document.getElementById("submitBtn").textContent = "Update";
-    document.getElementById("submitBtn").onclick = function() {
-        updateOrder(orderID);
-    };
 
     document.getElementById("order-form").style.display = "block";
 }
@@ -256,8 +264,7 @@ function updateOrder(orderID) {
         renderOrders(orders);
 
         document.getElementById("order-form").reset();
-        document.getElementById("submitBtn").textContent = "Done";
-        document.getElementById("submitBtn").onclick = newOrder;
+        document.getElementById("submitBtn").textContent = "Add";
     }
 }
 
