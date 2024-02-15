@@ -85,7 +85,7 @@
             </div>
 
             <div class="form-popup">
-                <form class="form-container" id="transaction-form" onsubmit="newTransaction(event)">
+                <form class="form-container" id="transaction-form" onsubmit="addOrUpdate(event)">
                     <div class="form-columns">
                             <input type="hidden" id="tr-id">
                             <label for="tr-date"><b>Date: </b></label>
@@ -109,7 +109,7 @@
                     </div>
                     
                     <div class="button-col">
-                        <button type="submit" class="btn" id="submitBtn">Done</button>
+                        <button type="submit" class="btn" id="submitBtn">Add</button>
                         <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
                     </div>
                 </form>

@@ -73,17 +73,26 @@ window.onload = function () {
     renderTransactions(transactions);
 }
 
+function addOrUpdate(event) {
+    let type = document.getElementById("submitBtn").textContent;
+    if (type === 'Add') {
+        newTransaction(event);
+    } else if (type === 'Update'){
+        const trId = document.getElementById("tr-id").value;
+        updateTransaction(+trId); // convert to number
+    }
+}
+
 
 function newTransaction(event) {
     event.preventDefault();
-    let trID = event.target[0].value;
     const trDate = document.getElementById("tr-date").value;
     const trCategory = document.getElementById("tr-category").value;
     const trAmount = parseFloat(document.getElementById("tr-amount").value);
     const trNotes = document.getElementById("tr-notes").value;
 
     serialNumberCounter = transactions.length + 1;
-    trID = serialNumberCounter;
+    let trID = serialNumberCounter;
     
     const transaction = {
       trID,
@@ -160,10 +169,7 @@ function editRow(trID) {
     document.getElementById("tr-notes").value = trToEdit.trNotes;
   
     document.getElementById("submitBtn").textContent = "Update";
-    document.getElementById("submitBtn").onclick = function() {
-        updateTransaction(trID);
-    };
-  
+
     document.getElementById("transaction-form").style.display = "block";
   }
   
@@ -180,7 +186,7 @@ function deleteTransaction(trID) {
 }
 
   function updateTransaction(trID) {
-    const indexToUpdate = transactions.findIndex(transaction => transaction.trID == trID);
+    const indexToUpdate = transactions.findIndex(transaction => transaction.trID === trID);
 
     if (indexToUpdate !== -1) {
         const updatedTransaction = {
@@ -198,8 +204,7 @@ function deleteTransaction(trID) {
         renderTransactions(transactions);
 
         document.getElementById("transaction-form").reset();
-        document.getElementById("submitBtn").textContent = "Done";
-        document.getElementById("submitBtn").onsubmit = newTransaction;
+        document.getElementById("submitBtn").textContent = "Add";
     }
 }
 
