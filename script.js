@@ -336,7 +336,7 @@ function initializeChart() {
     series: Object.values(categoryExpData),
     labels: Object.keys(categoryExpData),
     chart: {
-      height: 350,
+      // height: 350,
       type: 'donut',
       width: '100%',
       toolbar: {
@@ -349,7 +349,7 @@ function initializeChart() {
     dataLabels: {
       enabled: true,
       style: {
-        fontSize: '12px',
+        fontSize: '14px',
         fontFamily: 'Loto, sans-serif',
         fontWeight: 'regular',
       },
@@ -358,7 +358,7 @@ function initializeChart() {
       pie: {
         customScale: 0.8,
         donut: {
-          size: '75%',
+          size: '60%',
         },
         offsetY: 20,
       },
@@ -368,7 +368,7 @@ function initializeChart() {
     },
     legend: {
       position: 'left',
-      offsetY: 80,
+      offsetY: 55,
     },
     tooltip: {
       y: {
