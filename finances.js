@@ -266,7 +266,7 @@ function exportToCSV() {
   
     const link = document.createElement('a');
     link.href = window.URL.createObjectURL(blob);
-    link.download = 'biztrack_transaction_table.csv';
+    link.download = 'biztrack_expense_table.csv';
   
     document.body.appendChild(link);
     link.click();
