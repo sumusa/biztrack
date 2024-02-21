@@ -22,7 +22,7 @@ body {
     display: flex;
 }
 .sidebar {
-    position: sticky;
+    position: absolute;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -35,7 +35,7 @@ body {
     padding: 0 1rem;
     overflow: hidden;
     overflow-y: auto;
-    overflow-x: auto;
+    /* overflow-x: auto; */
     transition: all 0.5s linear;
     background: var(--black-color);
 }
@@ -589,13 +589,17 @@ ol {
 /* ---------- MEDIA QUERIES ---------- */
 
 /* Default styles for larger screens */
-.sidebar {
-    display: flex;
+@media screen and (min-width: 992px) {
+    .sidebar {
+        display: flex;
+        position: sticky;
+    }
+    .main-content {
+        margin-left: 0;
+    }
 }
 
-.main-content {
-    margin-left: 0;
-}
+
 
 /* Media query for smaller screens */
 @media (max-width: 768px) {
