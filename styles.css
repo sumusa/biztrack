@@ -35,6 +35,7 @@ body {
     padding: 0 1rem;
     overflow: hidden;
     overflow-y: auto;
+    overflow-x: auto;
     transition: all 0.5s linear;
     background: var(--black-color);
 }
@@ -52,7 +53,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    gap: 16px;
+    gap: 40px;
 }
 .fa-xmark {
     cursor: pointer;
@@ -128,7 +129,7 @@ body {
     position: relative;
     background-color: #313131;
     width: 100vw;
-    padding: 1.6rem 1.1rem;
+    padding: 1.0rem;
 }
 .header-wrapper {
     display: flex;
@@ -420,7 +421,8 @@ label {
 }
 .table-container {
     margin-top: 5px;
-    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
 }
 .table-container button {
     color: var(--brown-color);
@@ -588,7 +590,7 @@ ol {
 
 /* Default styles for larger screens */
 .sidebar {
-    display: block;
+    display: flex;
 }
 
 .main-content {
@@ -603,6 +605,7 @@ ol {
 
     .main-content {
         margin-left: 0;
+        position: inherit;
     }
 }
 
