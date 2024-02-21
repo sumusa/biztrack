@@ -312,7 +312,9 @@ label {
     /* justify-content: center; */
     gap: 1rem;
 }
-.payment-card {
+.card-wrapper a {
+    text-decoration: none;
+    color: var(--black-color);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -325,19 +327,19 @@ label {
 .payment-card:hover {
     transform: translateY(-5px);
 }
-.payment-card:first-child {
+.card-wrapper a:first-child {
     background-color: #24967259;
     border-left: 8px solid #249672;
 }
-.payment-card:nth-child(2) {
+.card-wrapper a:nth-child(2) {
     background-color: #A37A7459;
     border-left: 8px solid #A37A74;
 }
-.payment-card:nth-child(3) {
+.card-wrapper a:nth-child(3) {
     background-color: #247BA059;
     border-left: 8px solid #247BA0;
 }
-.payment-card:nth-child(4) {
+.card-wrapper a:nth-child(4) {
     background-color: #e4927359;
     border-left: 8px solid #e49273;
 }
