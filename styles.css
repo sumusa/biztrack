@@ -325,7 +325,7 @@ label {
     border-radius: 10px;
     transition: all 0.5s ease-in-out;
 }
-.payment-card:hover {
+.card-wrapper a:hover {
     transform: translateY(-5px);
 }
 .card-wrapper a:first-child {
