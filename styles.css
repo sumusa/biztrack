@@ -30,7 +30,7 @@ body {
     top: 0;
     left: 0;
     bottom: 0;
-    width: 210px;
+    width: 220px;
     height: 100vh;
     padding: 0 1rem;
     overflow: hidden;
@@ -40,7 +40,7 @@ body {
     background: var(--black-color);
 }
 .sidebar:hover {
-    width: 230px;
+    width: 235px;
     transition: 0.5s;
 }
 .logo {
