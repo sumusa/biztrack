@@ -605,6 +605,11 @@ ol {
 @media (max-width: 768px) {
     .sidebar {
         display: none;
+        position: fixed;
+        width: 190px;
+    }
+    .sidebar:hover {
+        width: 210px;
     }
 
     .main-content {
