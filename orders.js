@@ -45,7 +45,7 @@ window.onload = function () {
             qtyBought: 3,
             shipping: 3.50,
             taxes: 6.00,
-            orderTotal: 40.50,
+            orderTotal: 60.50,
             orderStatus: "Processing"
         },
         {
@@ -56,7 +56,7 @@ window.onload = function () {
             qtyBought: 4,
             shipping: 2.50,
             taxes: 2.00,
-            orderTotal: 30.50,
+            orderTotal: 84.50,
             orderStatus: "Shipped"
         },
         {
@@ -67,7 +67,7 @@ window.onload = function () {
             qtyBought: 1,
             shipping: 2.50,
             taxes: 19.00,
-            orderTotal: 21.50,
+            orderTotal: 76.50,
             orderStatus: "Delivered"
         },
         {
@@ -78,7 +78,7 @@ window.onload = function () {
             qtyBought: 2,
             shipping: 3.90,
             taxes: 4.00,
-            orderTotal: 11.50,
+            orderTotal: 37.90,
             orderStatus: "Pending"
         },
         ];

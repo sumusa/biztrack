@@ -107,9 +107,6 @@ body {
     align-items: center;
     gap: 1.5rem;
 }
-.menu a span {
-    overflow: hidden;
-}
 .menu a i {
     font-size: 1.5rem;
 }
@@ -285,7 +282,9 @@ label {
 }
 .button-col {
     display: flex;
-    justify-content: space-evenly;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
 }
 .form-container .btn {
     background-color: var(--green-color);
@@ -293,7 +292,7 @@ label {
     padding: 16px 20px;
     border: none;
     cursor: pointer;
-    width: 40%;
+    width: 30%;
     margin-bottom:10px;
     opacity: 0.8;
     font-size: 15px;
