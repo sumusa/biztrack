@@ -321,7 +321,7 @@ label {
     justify-content: space-between;
     padding: 1.2rem;
     width: 290px;
-    height: 150px;
+    /* height: 150px; */
     border-radius: 10px;
     transition: all 0.5s ease-in-out;
 }
