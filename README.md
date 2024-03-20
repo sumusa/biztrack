@@ -2,6 +2,10 @@
 
 Hey there! Welcome to the BizTrack project repository. This project is a result of my journey into the world of coding, inspired by the challenges I faced as a small business owner. BizTrack aims to simplify product, order, and finance management for fellow entrepreneurs.
 
+## Demo
+
+The live version of BizTrack is hosted [here](https://sumusa.github.io/biztrack/).
+
 ## Features
 
 - **Product Management**: Keep track of your product details.
@@ -30,14 +34,6 @@ Hey there! Welcome to the BizTrack project repository. This project is a result 
 3. **Explore BizTrack:**
 
    Start exploring the features and see how BizTrack can simplify your small business management.
-
-## GitHub Pages
-
-The live version of BizTrack is hosted on GitHub Pages. Check it out [here](https://sumusa.github.io/biztrack/).
-
-## Contributing
-
-Contributions are welcome! Feel free to submit issues, pull requests, or suggestions.
 
 ## Acknowledgments
 
