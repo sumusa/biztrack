@@ -2,15 +2,12 @@
 
 Hey there! Welcome to the BizTrack project repository. This project is a result of my journey into the world of coding, inspired by the challenges I faced as a small business owner. BizTrack aims to simplify product, order, and finance management for fellow entrepreneurs.
 
+![Biztrack Home page](assets/biztrack-home.png)
+![Biztrack Order page](assets/biztrack-order.png)
+
 ## Demo
 
 The live version of BizTrack is hosted [here](https://sumusa.github.io/biztrack/).
-
-## Features
-
-- **Product Management**: Keep track of your product details.
-- **Order Tracking**: Stay organized with an efficient order tracking system.
-- **Financial Overview**: Manage your finances seamlessly.
 
 ## Technologies Used
 
@@ -18,22 +15,19 @@ The live version of BizTrack is hosted [here](https://sumusa.github.io/biztrack/
 - CSS
 - JavaScript
 
+## Features
+
+- **Product Management**: Keep track of your product details.
+- **Order Tracking**: Stay organized with an efficient order tracking system.
+- **Financial Overview**: Manage your finances seamlessly.
+
 ## Getting Started
 
-1. **Clone the repository:**
+1. **Clone the repository.**
 
-   ```bash
-   git clone https://github.com/sumusa/biztrack.git
-   cd biztrack
-   ```
+2. **Open `index.html` in your preferred web browser.**
 
-2. **Open `index.html` in your browser:**
-
-   Double-click on the `index.html` file or open it using your preferred web browser.
-
-3. **Explore BizTrack:**
-
-   Start exploring the features and see how BizTrack can simplify your small business management.
+3. **Start exploring the features and see how BizTrack can simplify your small business management.**
 
 ## Acknowledgments
 
